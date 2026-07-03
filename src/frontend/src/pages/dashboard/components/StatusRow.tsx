@@ -60,7 +60,7 @@ export default function StatusRow({ symbol, outlook, inference, stats }: StatusR
               <div key={sym as string} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0, background: inferenceColor(j?.status, j?.last_run_at) }} />
                 <span className="font-mono" style={{ fontSize: '11px', color: 'var(--accent-light)', minWidth: '36px' }}>{sym as string}</span>
-                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
                   {j?.last_run_at ? timeAgo(j.last_run_at) : 'no data'}
                 </span>
               </div>
@@ -79,7 +79,7 @@ export default function StatusRow({ symbol, outlook, inference, stats }: StatusR
         <div style={{ display: 'flex', flexDirection: 'column', gap: '5px', marginTop: '2px' }}>
           {Object.entries(stats?.doc_counts ?? {}).slice(0, 4).map(([name, count]) => (
             <div key={name} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+              <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
                 {name.replace(/_/g, ' ')}
               </span>
               <span className="font-mono" style={{ fontSize: '11px', color: 'var(--text-primary)' }}>

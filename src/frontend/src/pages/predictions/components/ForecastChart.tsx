@@ -32,7 +32,7 @@ export default function ForecastChart({
   return (
     <div className="card" style={{ padding: '20px' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-        <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
           {historyDays}-Day History + {periodLabel} Forecast
         </div>
         {loading && <Loader size={13} color="var(--accent-light)" className="spin" />}
@@ -50,19 +50,19 @@ export default function ForecastChart({
               <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(23,25,30,0.04)" vertical={false} />
           <XAxis dataKey="date" tickLine={false} axisLine={false}
-            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
             tickFormatter={v => v.slice(5)} />
           <YAxis tickLine={false} axisLine={false}
-            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
             domain={['auto', 'auto']}
             tickFormatter={v => fmtAxisPrice(v, coin)}
             width={coin === 'bitcoin' ? 52 : 64} />
           <Tooltip content={<ChartTooltip decimals={decimals} skipNull />} />
           {todayDate && (
-            <ReferenceLine x={todayDate} stroke="rgba(255,255,255,0.12)" strokeDasharray="4 3"
-              label={{ value: 'Today', position: 'top', fill: 'var(--text-muted)', fontSize: 9, fontFamily: 'IBM Plex Mono' }} />
+            <ReferenceLine x={todayDate} stroke="rgba(23,25,30,0.12)" strokeDasharray="4 3"
+              label={{ value: 'Today', position: 'top', fill: 'var(--text-muted)', fontSize: 9, fontFamily: 'JetBrains Mono' }} />
           )}
           <Area type="monotone" dataKey="actual" name="Actual"
             stroke="var(--text-secondary)" strokeWidth={2} fill="url(#actualGrad)" dot={false} connectNulls />

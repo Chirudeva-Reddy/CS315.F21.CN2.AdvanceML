@@ -46,13 +46,13 @@ export default function SparkBatchDoc() {
               borderTop: '3px solid #34D399',
               borderRadius: '8px', padding: '16px',
             }}>
-              <div style={{ fontFamily: 'IBM Plex Mono', fontSize: '12px', color: '#34D399', fontWeight: 700, marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'JetBrains Mono', fontSize: '12px', color: '#34D399', fontWeight: 700, marginBottom: '8px' }}>
                 {card.title}
               </div>
-              <p style={{ margin: '0 0 8px', fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Plus Jakarta Sans' }}>
+              <p style={{ margin: '0 0 8px', fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Hanken Grotesk' }}>
                 {card.body}
               </p>
-              <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}>
+              <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}>
                 {card.index}
               </div>
             </div>

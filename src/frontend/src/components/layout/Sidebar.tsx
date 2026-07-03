@@ -1,5 +1,5 @@
-import { TrendingUp, LogOut } from 'lucide-react';
-import { NAV_ITEMS, type Page } from './navigation';
+import { ChevronDown, LogOut, FolderOpen } from 'lucide-react';
+import { NAV_ITEMS, PAGE_FILE, type Page } from './navigation';
 import type { Coin } from '../../lib/coin';
 import type { AuthUser } from '../../api/client';
 
@@ -14,7 +14,7 @@ interface SidebarProps {
   onLogout: () => void;
 }
 
-/** Fixed left navigation rail for the authenticated layout. */
+/** Fixed left navigation rail styled as an IDE file-tree explorer. */
 export default function Sidebar({
   page, coin, user, btcPrice, dogePrice, onSelectPage, onSelectCoin, onLogout,
 }: SidebarProps) {
@@ -33,134 +33,114 @@ export default function Sidebar({
       height: '100vh',
       zIndex: 20,
     }}>
-      {/* Brand */}
-      <div style={{ padding: '20px 18px 16px', borderBottom: '1px solid var(--border)' }}>
+      {/* Brand — workspace title */}
+      <div style={{ padding: '16px 16px 14px', borderBottom: '1px solid var(--border)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{
-            width: '32px', height: '32px', borderRadius: '9px',
-            background: 'var(--accent-subtle)',
-            border: '1px solid rgba(99,102,241,0.2)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flexShrink: 0,
-          }}>
-            <TrendingUp size={16} color="var(--accent-light)" />
-          </div>
-          <div>
-            <div className="font-display" style={{
-              fontSize: '16px', color: 'var(--text-primary)', lineHeight: 1,
-              fontWeight: 700, letterSpacing: '-0.03em',
-            }}>
-              Bitconiacs
-            </div>
-            <div style={{
-              fontSize: '10px', color: 'var(--text-muted)',
-              letterSpacing: '0.04em', marginTop: '2px',
-              fontFamily: 'Plus Jakarta Sans',
-            }}>
-              Crypto Analytics
-            </div>
+          <div className="win-dots"><i /><i /><i /></div>
+          <div className="font-mono" style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+            <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>bitconiacs</span>
+            <span style={{ color: 'var(--tok-com)' }}> — workspace</span>
           </div>
         </div>
       </div>
 
-      {/* Coin Selector */}
-      <div style={{ padding: '12px 12px', borderBottom: '1px solid var(--border)' }}>
-        <div style={{
-          fontSize: '10px', color: 'var(--text-muted)',
-          letterSpacing: '0.08em', textTransform: 'uppercase',
-          fontFamily: 'Plus Jakarta Sans', marginBottom: '8px', paddingLeft: '4px',
-        }}>
-          Active Asset
+      {/* Active asset — const declaration */}
+      <div style={{ padding: '14px 12px', borderBottom: '1px solid var(--border)' }}>
+        <div className="tree-label" style={{ paddingLeft: '6px', marginBottom: '10px' }}>
+          .env
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
           {([
             ['bitcoin',  'BTC',  btcPrice],
             ['dogecoin', 'DOGE', dogePrice],
-          ] as const).map(([c, sym, price]) => (
-            <button
-              key={c}
-              onClick={() => onSelectCoin(c)}
-              style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                padding: '8px 10px', borderRadius: '8px', border: 'none',
-                background: coin === c ? 'var(--accent-muted)' : 'transparent',
-                outline: coin === c ? '1px solid rgba(99,102,241,0.2)' : '1px solid transparent',
-                cursor: 'pointer', transition: 'all 0.12s',
-              }}
-            >
-              <span style={{
-                fontSize: '13px', fontWeight: 600,
-                color: coin === c ? 'var(--accent-light)' : 'var(--text-secondary)',
-                fontFamily: 'Plus Jakarta Sans',
-              }}>
-                {sym}
-              </span>
-              <span className="font-mono" style={{
-                fontSize: '11px',
-                color: coin === c ? 'var(--text-primary)' : 'var(--text-muted)',
-              }}>
-                {price}
-              </span>
-            </button>
-          ))}
+          ] as const).map(([c, sym, price]) => {
+            const on = coin === c;
+            return (
+              <button
+                key={c}
+                onClick={() => onSelectCoin(c)}
+                className="font-mono"
+                style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  padding: '7px 10px', borderRadius: '7px', border: 'none',
+                  background: on ? 'var(--accent-subtle)' : 'transparent',
+                  outline: on ? '1px solid rgba(79,70,229,0.22)' : '1px solid transparent',
+                  cursor: 'pointer', transition: 'all 0.12s', fontSize: '12px',
+                }}
+              >
+                <span>
+                  <span className="tok-key">ASSET</span>
+                  <span className="tok-punc">=</span>
+                  <span style={{ color: on ? 'var(--tok-str)' : 'var(--text-muted)', fontWeight: 600 }}>{sym}</span>
+                </span>
+                <span style={{ color: on ? 'var(--tok-num)' : 'var(--text-muted)' }}>{price}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav style={{ flex: 1, padding: '10px 10px', overflowY: 'auto' }}>
+      {/* Navigation — file tree */}
+      <nav style={{ flex: 1, padding: '12px 10px', overflowY: 'auto' }}>
         <div style={{
-          fontSize: '10px', color: 'var(--text-muted)', letterSpacing: '0.08em',
-          textTransform: 'uppercase', fontFamily: 'Plus Jakarta Sans',
-          padding: '4px 4px 8px',
+          display: 'flex', alignItems: 'center', gap: '6px',
+          padding: '2px 4px 10px', color: 'var(--text-secondary)',
         }}>
-          Navigation
+          <ChevronDown size={13} />
+          <FolderOpen size={13} color="var(--tok-key)" />
+          <span className="font-mono" style={{ fontSize: '12px', color: 'var(--text-primary)', fontWeight: 600 }}>
+            src
+          </span>
         </div>
-        {NAV_ITEMS.map(item => (
-          <button
-            key={item.id}
-            onClick={() => onSelectPage(item.id)}
-            className={`nav-item ${page === item.id || (item.id === 'docs' && page.startsWith('doc-')) ? 'active' : ''}`}
-            style={{ marginBottom: '1px' }}
-          >
-            {item.icon}
-            <span style={{ flex: 1 }}>{item.label}</span>
-            {item.badge && (
-              <span style={{
-                padding: '1px 6px', borderRadius: '5px', fontSize: '9px',
-                fontFamily: 'IBM Plex Mono', fontWeight: 500,
-                background: (page === item.id || (item.id === 'docs' && page.startsWith('doc-'))) ? 'var(--accent-subtle)' : 'var(--bg-elevated)',
-                color: (page === item.id || (item.id === 'docs' && page.startsWith('doc-'))) ? 'var(--accent-light)' : 'var(--text-muted)',
-              }}>
-                {item.badge}
+        {NAV_ITEMS.map(item => {
+          const active = page === item.id || (item.id === 'docs' && page.startsWith('doc-'));
+          return (
+            <button
+              key={item.id}
+              onClick={() => onSelectPage(item.id)}
+              className={`tree-item ${active ? 'active' : ''}`}
+              style={{ marginBottom: '1px' }}
+            >
+              <span style={{ display: 'flex', alignItems: 'center', flexShrink: 0, opacity: 0.85 }}>
+                {item.icon}
               </span>
-            )}
-          </button>
-        ))}
+              <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {PAGE_FILE[item.id]}
+              </span>
+              {item.badge && (
+                <span className="font-mono" style={{
+                  padding: '1px 6px', borderRadius: '4px', fontSize: '9px', fontWeight: 500,
+                  background: active ? 'var(--accent-subtle)' : 'var(--bg-elevated)',
+                  color: active ? 'var(--accent-light)' : 'var(--text-muted)',
+                }}>
+                  {item.badge}
+                </span>
+              )}
+            </button>
+          );
+        })}
       </nav>
 
-      {/* User */}
+      {/* User — session footer */}
       <div style={{ padding: '12px 12px', borderTop: '1px solid var(--border)' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
             <div style={{
               width: '30px', height: '30px', borderRadius: '8px',
               background: 'var(--purple-subtle)',
-              border: '1px solid rgba(167,139,250,0.2)',
+              border: '1px solid rgba(124,58,237,0.22)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              <span style={{
-                fontSize: '12px', fontWeight: 600, color: 'var(--purple)',
-                fontFamily: 'Plus Jakarta Sans',
-              }}>
+              <span className="font-mono" style={{ fontSize: '12px', fontWeight: 600, color: 'var(--purple)' }}>
                 {user?.username?.[0]?.toUpperCase() ?? 'A'}
               </span>
             </div>
-            <div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+            <div className="font-mono">
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-primary)' }}>
                 {user?.username ?? 'admin'}
               </div>
-              <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans' }}>
-                {user?.role ?? 'admin'}
+              <div style={{ fontSize: '10px', color: 'var(--tok-com)' }}>
+                @{user?.role ?? 'admin'}
               </div>
             </div>
           </div>
@@ -172,7 +152,7 @@ export default function Sidebar({
               padding: '6px', borderRadius: '6px', color: 'var(--text-muted)',
               transition: 'color 0.12s', display: 'flex', alignItems: 'center',
             }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--text-secondary)')}
+            onMouseEnter={e => (e.currentTarget.style.color = 'var(--down)')}
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
           >
             <LogOut size={14} />

@@ -18,18 +18,18 @@ export default function TrainingJobsTable({ jobs, loading }: TrainingJobsTablePr
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
           <RefreshCw size={15} color="var(--text-secondary)" />
-          <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+          <span style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
             Training Jobs
           </span>
           {loading && <Loader size={12} color="var(--accent-light)" className="spin" />}
         </div>
-        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
           Auto-refreshes every 10s
         </div>
       </div>
 
       {jobs.length === 0 ? (
-        <div style={{ padding: '32px', textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', fontSize: '13px' }}>
+        <div style={{ padding: '32px', textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', fontSize: '13px' }}>
           No training jobs yet. Click "Retrain" on a model to queue a job.
         </div>
       ) : (
@@ -68,23 +68,23 @@ export default function TrainingJobsTable({ jobs, loading }: TrainingJobsTablePr
                   <StatusBadge status={j.status} />
                 </td>
                 <td>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
                     {j.created_at ? timeAgo(j.created_at) : '—'}
                   </span>
                 </td>
                 <td>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
                     {j.started_at ? timeAgo(j.started_at) : '—'}
                   </span>
                 </td>
                 <td>
-                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+                  <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
                     {j.finished_at ? timeAgo(j.finished_at) : '—'}
                   </span>
                 </td>
                 <td>
                   {j.error ? (
-                    <span style={{ fontSize: '11px', color: 'var(--down)', fontFamily: 'Plus Jakarta Sans' }} title={j.error}>
+                    <span style={{ fontSize: '11px', color: 'var(--down)', fontFamily: 'Hanken Grotesk' }} title={j.error}>
                       {j.error.slice(0, 32)}{j.error.length > 32 ? '…' : ''}
                     </span>
                   ) : (

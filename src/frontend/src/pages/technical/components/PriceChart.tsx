@@ -14,8 +14,8 @@ interface PriceChartProps {
   yWidth: number;
 }
 
-const UP = '#00F0A0';
-const DOWN = '#FF3864';
+const UP = '#15803D';
+const DOWN = '#DC2626';
 
 // Custom recharts shape for one candle. Geometry (x/y/width/height) describes the
 // floating bar spanning [low, high]; open/close come from the datum payload.
@@ -52,7 +52,7 @@ export default function PriceChart({ coin, data, overlays, chartType, xInterval,
   const isCandle = chartType === 'candle';
   return (
     <div className="card" style={{ padding: '20px', marginBottom: '10px' }}>
-      <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans', marginBottom: '14px' }}>
+      <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk', marginBottom: '14px' }}>
         Price {overlays.ma20 ? '· MA20' : ''}{overlays.ma50 ? ' · MA50' : ''}{overlays.bb ? ' · Bollinger Bands' : ''}
       </div>
       <ResponsiveContainer width="100%" height={300}>
@@ -63,12 +63,12 @@ export default function PriceChart({ coin, data, overlays, chartType, xInterval,
               <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(23,25,30,0.04)" vertical={false} />
           <XAxis dataKey="date" tickLine={false} axisLine={false}
-            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
             tickFormatter={v => v.slice(5)} interval={xInterval} />
           <YAxis tickLine={false} axisLine={false} width={yWidth}
-            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+            tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
             domain={['auto', 'auto']}
             tickFormatter={v => fmtPrice(v, coin)} />
           <Tooltip content={<ChartTooltip skipNull format={v => `$${v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec })}`} />} />
@@ -93,7 +93,7 @@ export default function PriceChart({ coin, data, overlays, chartType, xInterval,
               <Line type="monotone" dataKey="bbLo" name="BB Lower"
                 stroke="var(--up)" strokeWidth={1} strokeDasharray="3 3" dot={false} connectNulls />
               <Line type="monotone" dataKey="bbMid" name="BB Mid"
-                stroke="rgba(255,255,255,0.2)" strokeWidth={1} dot={false} connectNulls />
+                stroke="rgba(23,25,30,0.2)" strokeWidth={1} dot={false} connectNulls />
             </>
           )}
         </ComposedChart>

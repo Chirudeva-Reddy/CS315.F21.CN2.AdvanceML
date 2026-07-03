@@ -36,9 +36,9 @@ export default function Pagination({ page, totalPages, onChange, pages, showTota
             className={p === page ? undefined : 'btn-ghost'}
             style={{
               fontSize: '10px', padding: '4px 8px', borderRadius: '5px',
-              fontFamily: 'IBM Plex Mono', cursor: 'pointer',
+              fontFamily: 'JetBrains Mono', cursor: 'pointer',
               background: p === page ? 'var(--accent-subtle)' : 'transparent',
-              border: p === page ? '1px solid rgba(99,102,241,0.3)' : '1px solid transparent',
+              border: p === page ? '1px solid rgba(79,70,229,0.3)' : '1px solid transparent',
               color: p === page ? 'var(--accent-light)' : 'var(--text-secondary)',
             }}
           >
@@ -46,7 +46,7 @@ export default function Pagination({ page, totalPages, onChange, pages, showTota
           </button>
         ))}
         {showTotal && (
-          <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', marginLeft: '4px' }}>
+          <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', marginLeft: '4px' }}>
             of {totalPages}
           </span>
         )}

@@ -33,11 +33,11 @@ export default function PredictionHistory({
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
           <Brain size={14} color="var(--purple)" />
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
             Prediction Run History
           </span>
           <span style={{
-            padding: '1px 7px', borderRadius: '5px', fontSize: '10px', fontFamily: 'IBM Plex Mono',
+            padding: '1px 7px', borderRadius: '5px', fontSize: '10px', fontFamily: 'JetBrains Mono',
             background: 'var(--purple-subtle)', color: 'var(--purple)',
           }}>
             {totalRecords}

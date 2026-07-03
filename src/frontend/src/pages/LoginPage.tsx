@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../auth/AuthContext';
-import { TrendingUp, Lock, User, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -17,10 +17,15 @@ export default function LoginPage() {
     try {
       await login({ username, password });
     } catch {
-      setError('Invalid credentials. Please try again.');
+      setError('auth failed: invalid credentials (exit 1)');
     } finally {
       setLoading(false);
     }
+  };
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: 'JetBrains Mono, monospace', fontSize: '12px',
+    color: 'var(--tok-com)', minWidth: '96px', userSelect: 'none',
   };
 
   return (
@@ -28,74 +33,37 @@ export default function LoginPage() {
       width: '100%', minHeight: '100vh',
       background: 'var(--bg-base)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      position: 'relative', overflow: 'hidden',
+      position: 'relative', overflow: 'hidden', padding: '24px',
     }}>
-      {/* Ambient background blobs */}
-      <div style={{
-        position: 'absolute', top: '10%', left: '-5%',
-        width: '600px', height: '600px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 65%)',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', bottom: '5%', right: '-8%',
-        width: '500px', height: '500px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(167,139,250,0.05) 0%, transparent 65%)',
-        pointerEvents: 'none',
-      }} />
-
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
-        style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '400px', margin: '0 24px' }}
+        style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '440px' }}
       >
-        <div style={{
-          background: 'var(--bg-card)',
-          border: '1px solid var(--border)',
-          borderRadius: '16px',
-          padding: '40px',
-          boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
-        }}>
-          {/* Logo */}
-          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-              width: '52px', height: '52px', borderRadius: '14px',
-              background: 'var(--accent-subtle)',
-              border: '1px solid rgba(99,102,241,0.25)',
-              marginBottom: '18px',
-            }}>
-              <TrendingUp size={24} color="var(--accent-light)" />
-            </div>
-            <div className="font-display" style={{ fontSize: '26px', color: 'var(--text-primary)', lineHeight: 1, fontWeight: 700, letterSpacing: '-0.03em' }}>
-              Bitconiacs
-            </div>
-            <div style={{
-              fontSize: '12px', color: 'var(--text-secondary)',
-              marginTop: '6px', fontFamily: 'Plus Jakarta Sans',
-              letterSpacing: '0.02em',
-            }}>
-              Crypto Analytics · Lambda Architecture
-            </div>
+        <div className="terminal">
+          {/* Terminal titlebar */}
+          <div className="terminal-head">
+            <div className="win-dots"><i /><i /><i /></div>
+            <span className="title">bitconiacs — auth — zsh</span>
           </div>
 
-          <form onSubmit={handleSubmit}>
-            {/* Username */}
-            <div style={{ marginBottom: '14px' }}>
-              <label style={{
-                display: 'block', fontSize: '11px', fontWeight: 600,
-                color: 'var(--text-secondary)', textTransform: 'uppercase',
-                letterSpacing: '0.07em', marginBottom: '7px',
-                fontFamily: 'Plus Jakarta Sans',
-              }}>
-                Username
-              </label>
-              <div style={{ position: 'relative' }}>
-                <User size={14} color="var(--text-muted)" style={{
-                  position: 'absolute', left: '13px', top: '50%',
-                  transform: 'translateY(-50%)', pointerEvents: 'none',
-                }} />
+          <div style={{ padding: '26px 24px 28px' }}>
+            {/* Boot banner */}
+            <div className="font-mono" style={{ fontSize: '12px', lineHeight: 1.9, marginBottom: '22px' }}>
+              <div className="tok-com"># crypto analytics · lambda architecture</div>
+              <div>
+                <span className="tok-str">❯</span>{' '}
+                <span style={{ color: 'var(--text-secondary)' }}>./bitconiacs</span>{' '}
+                <span className="tok-key">--login</span>
+              </div>
+              <div className="tok-com">initializing BTC · DOGE · LSTM dual-head v3 …</div>
+            </div>
+
+            <form onSubmit={handleSubmit}>
+              {/* Username */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <span style={labelStyle}>username:</span>
                 <input
                   type="text"
                   value={username}
@@ -103,27 +71,14 @@ export default function LoginPage() {
                   className="input-field"
                   placeholder="admin"
                   autoComplete="username"
-                  style={{ paddingLeft: '38px' }}
+                  style={{ flex: 1, padding: '9px 12px', fontSize: '13px' }}
                   required
                 />
               </div>
-            </div>
 
-            {/* Password */}
-            <div style={{ marginBottom: '24px' }}>
-              <label style={{
-                display: 'block', fontSize: '11px', fontWeight: 600,
-                color: 'var(--text-secondary)', textTransform: 'uppercase',
-                letterSpacing: '0.07em', marginBottom: '7px',
-                fontFamily: 'Plus Jakarta Sans',
-              }}>
-                Password
-              </label>
-              <div style={{ position: 'relative' }}>
-                <Lock size={14} color="var(--text-muted)" style={{
-                  position: 'absolute', left: '13px', top: '50%',
-                  transform: 'translateY(-50%)', pointerEvents: 'none',
-                }} />
+              {/* Password */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+                <span style={labelStyle}>password:</span>
                 <input
                   type="password"
                   value={password}
@@ -131,58 +86,57 @@ export default function LoginPage() {
                   className="input-field"
                   placeholder="••••••••"
                   autoComplete="current-password"
-                  style={{ paddingLeft: '38px' }}
+                  style={{ flex: 1, padding: '9px 12px', fontSize: '13px' }}
                   required
                 />
               </div>
+
+              {/* Error */}
+              {error && (
+                <div className="font-mono" style={{
+                  display: 'flex', alignItems: 'center', gap: '8px',
+                  padding: '9px 12px',
+                  background: 'var(--down-subtle)',
+                  border: '1px solid var(--down-border)',
+                  borderRadius: '7px', marginBottom: '18px',
+                  fontSize: '12px', color: 'var(--down)',
+                }}>
+                  <AlertCircle size={13} />
+                  {error}
+                </div>
+              )}
+
+              {/* Submit */}
+              <motion.button
+                type="submit"
+                disabled={loading}
+                whileTap={{ scale: 0.98 }}
+                className="font-mono"
+                style={{
+                  width: '100%', padding: '11px',
+                  background: loading ? 'var(--bg-elevated)' : 'var(--accent)',
+                  border: 'none', borderRadius: '8px',
+                  color: loading ? 'var(--text-muted)' : '#fff',
+                  fontSize: '13px', fontWeight: 600,
+                  cursor: loading ? 'not-allowed' : 'pointer',
+                  transition: 'background 0.15s', textAlign: 'left',
+                }}
+              >
+                {loading
+                  ? <><span style={{ color: 'rgba(255,255,255,0.7)' }}>❯</span> authenticating…</>
+                  : <>❯ sign_in()<span className="caret" style={{ color: '#fff' }}>▊</span></>}
+              </motion.button>
+            </form>
+
+            {/* Footer */}
+            <div className="font-mono" style={{
+              marginTop: '22px', paddingTop: '16px',
+              borderTop: '1px solid var(--border)',
+              fontSize: '10.5px', color: 'var(--tok-com)', lineHeight: 1.7,
+            }}>
+              <div>// Spark Streaming + Batch · FastAPI · MongoDB</div>
+              <div>// Kafka → Spark → LSTM → serving layer</div>
             </div>
-
-            {/* Error */}
-            {error && (
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: '8px',
-                padding: '10px 13px',
-                background: 'var(--down-subtle)',
-                border: '1px solid var(--down-border)',
-                borderRadius: '8px', marginBottom: '18px',
-                fontSize: '13px', color: 'var(--down)',
-                fontFamily: 'Plus Jakarta Sans',
-              }}>
-                <AlertCircle size={14} />
-                {error}
-              </div>
-            )}
-
-            {/* Submit */}
-            <motion.button
-              type="submit"
-              disabled={loading}
-              whileTap={{ scale: 0.98 }}
-              style={{
-                width: '100%', padding: '12px',
-                background: loading ? 'var(--bg-elevated)' : 'var(--accent)',
-                border: 'none', borderRadius: '9px',
-                color: loading ? 'var(--text-muted)' : '#fff',
-                fontFamily: 'Plus Jakarta Sans', fontSize: '14px', fontWeight: 600,
-                cursor: loading ? 'not-allowed' : 'pointer',
-                transition: 'background 0.15s',
-              }}
-            >
-              {loading ? 'Signing in…' : 'Sign in'}
-            </motion.button>
-          </form>
-
-          {/* Footer */}
-          <div style={{
-            marginTop: '28px', paddingTop: '20px',
-            borderTop: '1px solid var(--border)',
-            textAlign: 'center', fontSize: '11px',
-            color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans',
-            lineHeight: '1.6',
-          }}>
-            BTC · DOGE · LSTM dual-head v3
-            <br />
-            Spark Streaming + Batch · FastAPI
           </div>
         </div>
       </motion.div>

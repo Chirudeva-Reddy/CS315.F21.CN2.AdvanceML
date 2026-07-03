@@ -18,7 +18,7 @@ export function LSTMCellDiagram() {
       />
       <figcaption style={{
         marginTop: 8, fontSize: 11.5, lineHeight: 1.6, fontStyle: 'italic',
-        color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans',
+        color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk',
       }}>
         Mỗi module lặp lại chứa 4 lớp tương tác: 3 cổng sigmoid (σ) và 1 lớp tanh.{' '}
         <a href={`${COLAH}/`} target="_blank" rel="noopener noreferrer"

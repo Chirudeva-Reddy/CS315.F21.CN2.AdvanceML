@@ -77,7 +77,7 @@ const COL_LAYER: Record<string, string> = {
 };
 
 const LAYER_COLOR: Record<string, string> = {
-  BATCH: '#22C55E', SPEED: '#F59E0B', ML: '#818CF8', SYS: '#52525B',
+  BATCH: '#22C55E', SPEED: '#F59E0B', ML: '#4F46E5', SYS: '#52525B',
 };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -126,7 +126,7 @@ function LayerTag({ layer }: { layer: string }) {
   return (
     <span style={{
       padding: '1px 5px', borderRadius: 3, fontSize: 9,
-      fontFamily: 'IBM Plex Mono', fontWeight: 500, letterSpacing: '0.06em',
+      fontFamily: 'JetBrains Mono', fontWeight: 500, letterSpacing: '0.06em',
       background: `${c}18`, color: c, border: `1px solid ${c}30`,
     }}>
       {layer}
@@ -140,7 +140,7 @@ function StatusBadge({ status }: { status: string }) {
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: 5,
       padding: '2px 7px', borderRadius: 4, fontSize: 10,
-      fontFamily: 'IBM Plex Mono', fontWeight: 500,
+      fontFamily: 'JetBrains Mono', fontWeight: 500,
       background: `${c}18`, color: c, border: `1px solid ${c}30`,
     }}>
       <PulseDot color={c} pulse={status === 'running'} />
@@ -149,12 +149,12 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
-function SectionDivider({ label, accent = '#818CF8' }: { label: string; accent?: string }) {
+function SectionDivider({ label, accent = '#4F46E5' }: { label: string; accent?: string }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '28px 0 14px' }}>
       <div style={{ width: 3, height: 14, borderRadius: 2, background: accent, flexShrink: 0 }} />
       <span style={{
-        fontFamily: 'IBM Plex Mono', fontSize: 10, fontWeight: 600,
+        fontFamily: 'JetBrains Mono', fontSize: 10, fontWeight: 600,
         letterSpacing: '0.12em', color: 'var(--text-muted)', textTransform: 'uppercase',
       }}>
         {label}
@@ -175,18 +175,18 @@ function StatCard({ icon, label, value, valueColor, sub, accent, dot }: {
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 12, color: 'var(--text-muted)' }}>
         {icon}
-        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, letterSpacing: '0.1em' }}>{label}</span>
+        <span style={{ fontFamily: 'JetBrains Mono', fontSize: 9, letterSpacing: '0.1em' }}>{label}</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
         {dot && <PulseDot color={valueColor ?? accent} pulse={value === 'OK' || value === 'CONNECTED'} />}
         <span style={{
-          fontFamily: 'IBM Plex Mono', fontSize: 22, fontWeight: 700,
+          fontFamily: 'JetBrains Mono', fontSize: 22, fontWeight: 700,
           color: valueColor ?? 'var(--text-primary)', letterSpacing: '-0.02em', lineHeight: 1,
         }}>
           {value}
         </span>
       </div>
-      <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: 11, color: 'var(--text-muted)' }}>{sub}</div>
+      <div style={{ fontFamily: 'Hanken Grotesk', fontSize: 11, color: 'var(--text-muted)' }}>{sub}</div>
     </div>
   );
 }
@@ -203,7 +203,7 @@ function JobsTable({ title, counts, jobs, showHorizon, showModelId }: {
         background: 'var(--bg-elevated)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       }}>
-        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, fontWeight: 600, color: 'var(--text-primary)' }}>
+        <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, fontWeight: 600, color: 'var(--text-primary)' }}>
           {title}
         </span>
         <div style={{ display: 'flex', gap: 5 }}>
@@ -214,7 +214,7 @@ function JobsTable({ title, counts, jobs, showHorizon, showModelId }: {
             return (
               <span key={s} style={{
                 padding: '1px 6px', borderRadius: 3, fontSize: 9,
-                fontFamily: 'IBM Plex Mono',
+                fontFamily: 'JetBrains Mono',
                 background: `${c}18`, color: c, border: `1px solid ${c}30`,
               }}>
                 {n} {s}
@@ -222,12 +222,12 @@ function JobsTable({ title, counts, jobs, showHorizon, showModelId }: {
             );
           })}
           {Object.keys(counts).length === 0 && (
-            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)' }}>no jobs</span>
+            <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)' }}>no jobs</span>
           )}
         </div>
       </div>
       {jobs.length === 0 ? (
-        <div style={{ padding: '20px 14px', textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-muted)' }}>
+        <div style={{ padding: '20px 14px', textAlign: 'center', fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-muted)' }}>
           — empty —
         </div>
       ) : (
@@ -240,19 +240,19 @@ function JobsTable({ title, counts, jobs, showHorizon, showModelId }: {
             gap: 8, alignItems: 'center',
           }}>
             <span style={{
-              fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)',
+              fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)',
               overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
             }}>
               {showModelId && j.model_id ? j.model_id : j.job_id.slice(0, 22) + (j.job_id.length > 22 ? '…' : '')}
             </span>
             {showHorizon && (
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)' }}>
                 H{j.horizon ?? '?'}
               </span>
             )}
             <span style={{
-              fontFamily: 'IBM Plex Mono', fontSize: 11, fontWeight: 600,
-              color: j.coin === 'BTC' ? '#F59E0B' : '#818CF8',
+              fontFamily: 'JetBrains Mono', fontSize: 11, fontWeight: 600,
+              color: j.coin === 'BTC' ? '#F59E0B' : '#4F46E5',
             }}>
               {j.coin}
             </span>
@@ -310,7 +310,7 @@ export default function SystemStatsPage() {
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', flexDirection: 'column', gap: 16 }}>
         <div style={{ width: 36, height: 36, borderRadius: '50%', border: '2px solid var(--border)', borderTop: '2px solid var(--accent)', animation: 'sysSpin 0.8s linear infinite' }} />
-        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 12, color: 'var(--text-muted)' }}>Loading system stats…</span>
+        <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--text-muted)' }}>Loading system stats…</span>
       </div>
     );
   }
@@ -331,13 +331,13 @@ export default function SystemStatsPage() {
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 28 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-            <span style={{ fontFamily: 'IBM Plex Mono', fontWeight: 700, fontSize: 21, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
+            <span style={{ fontFamily: 'JetBrains Mono', fontWeight: 700, fontSize: 21, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
               SYSTEM OVERVIEW
             </span>
             <PulseDot color="#22C55E" pulse />
-            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#22C55E', letterSpacing: '0.1em' }}>LIVE</span>
+            <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: '#22C55E', letterSpacing: '0.1em' }}>LIVE</span>
           </div>
-          <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: 13, color: 'var(--text-muted)' }}>
+          <div style={{ fontFamily: 'Hanken Grotesk', fontSize: 13, color: 'var(--text-muted)' }}>
             Infrastructure · Models · Jobs · Scheduler
             {lastRefresh && (
               <span style={{ marginLeft: 10 }}>· updated {relTime(lastRefresh.toISOString())}</span>
@@ -351,7 +351,7 @@ export default function SystemStatsPage() {
             borderRadius: 8, background: 'var(--bg-elevated)', border: '1px solid var(--border)',
           }}>
             <Clock size={11} color="var(--text-muted)" />
-            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-muted)' }}>
+            <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-muted)' }}>
               {countdown}s
             </span>
           </div>
@@ -363,7 +363,7 @@ export default function SystemStatsPage() {
               borderRadius: 8, border: '1px solid var(--border)',
               background: 'var(--bg-elevated)', cursor: refreshing ? 'not-allowed' : 'pointer',
               color: 'var(--text-secondary)', fontSize: 12,
-              fontFamily: 'Plus Jakarta Sans', opacity: refreshing ? 0.5 : 1,
+              fontFamily: 'Hanken Grotesk', opacity: refreshing ? 0.5 : 1,
               transition: 'opacity 0.1s',
             }}
           >
@@ -378,7 +378,7 @@ export default function SystemStatsPage() {
           display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px',
           background: 'rgba(239,68,68,0.07)', border: '1px solid rgba(239,68,68,0.2)',
           borderRadius: 8, marginBottom: 20,
-          fontFamily: 'IBM Plex Mono', fontSize: 12, color: '#EF4444',
+          fontFamily: 'JetBrains Mono', fontSize: 12, color: '#EF4444',
         }}>
           <AlertCircle size={14} />
           {error}
@@ -403,7 +403,7 @@ export default function SystemStatsPage() {
           icon={<Cpu size={13} />} label="MODELS"
           value={String(data?.models.total ?? 0)}
           sub={`BTC ${data?.models.by_coin.BTC ?? 0} · DOGE ${data?.models.by_coin.DOGE ?? 0}`}
-          accent="#818CF8"
+          accent="#4F46E5"
         />
         <StatCard
           icon={<Activity size={13} />} label="DOCUMENTS"
@@ -425,7 +425,7 @@ export default function SystemStatsPage() {
               alignItems: 'center', gap: 14, padding: '10px 18px',
               borderBottom: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
             }}>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11.5, color: 'var(--text-secondary)' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11.5, color: 'var(--text-secondary)' }}>
                 {col}
               </span>
               <LayerTag layer={layer} />
@@ -437,7 +437,7 @@ export default function SystemStatsPage() {
                   style={{ height: '100%', background: lc, borderRadius: 2 }}
                 />
               </div>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 12, color: 'var(--text-primary)', textAlign: 'right', fontWeight: 500 }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--text-primary)', textAlign: 'right', fontWeight: 500 }}>
                 {fmtN(count)}
               </span>
             </div>
@@ -446,7 +446,7 @@ export default function SystemStatsPage() {
       </div>
 
       {/* ── Model Registry ── */}
-      <SectionDivider label="Model Registry" accent="#818CF8" />
+      <SectionDivider label="Model Registry" accent="#4F46E5" />
       <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 10, overflow: 'hidden' }}>
         <div style={{
           display: 'grid', gridTemplateColumns: '56px 52px 210px 76px 68px 68px 68px 84px',
@@ -454,54 +454,54 @@ export default function SystemStatsPage() {
           borderBottom: '1px solid var(--border)', background: 'var(--bg-elevated)',
         }}>
           {['COIN', 'HRZ', 'MODEL ID', 'VERSION', 'STATUS', 'RMSE', 'MAE', 'DIR ACC'].map(h => (
-            <span key={h} style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: 'var(--text-muted)', letterSpacing: '0.08em' }}>{h}</span>
+            <span key={h} style={{ fontFamily: 'JetBrains Mono', fontSize: 9, color: 'var(--text-muted)', letterSpacing: '0.08em' }}>{h}</span>
           ))}
         </div>
 
         {(!data || data.models.entries.length === 0) && (
-          <div style={{ padding: '24px 18px', textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 12, color: 'var(--text-muted)' }}>
+          <div style={{ padding: '24px 18px', textAlign: 'center', fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--text-muted)' }}>
             No models found — run <code>make infer-all</code> first
           </div>
         )}
 
         {data?.models.entries.map((m, i) => {
           const statusLabel = m.is_active ? 'ACTIVE' : m.is_newest ? 'NEWEST' : 'OLD';
-          const statusC = m.is_active ? '#22C55E' : m.is_newest ? '#818CF8' : '#52525B';
+          const statusC = m.is_active ? '#22C55E' : m.is_newest ? '#4F46E5' : '#52525B';
           return (
             <div key={m.model_id} style={{
               display: 'grid', gridTemplateColumns: '56px 52px 210px 76px 68px 68px 68px 84px',
               gap: 8, padding: '10px 18px', alignItems: 'center',
               borderBottom: i < data.models.entries.length - 1 ? '1px solid var(--border)' : 'none',
-              background: m.is_active ? 'rgba(99,102,241,0.04)' : 'transparent',
+              background: m.is_active ? 'rgba(79,70,229,0.04)' : 'transparent',
             }}>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 12, fontWeight: 700, color: m.coin === 'BTC' ? '#F59E0B' : '#818CF8' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, fontWeight: 700, color: m.coin === 'BTC' ? '#F59E0B' : '#4F46E5' }}>
                 {m.coin}
               </span>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
                 H{m.horizon}
               </span>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {m.model_id}
               </span>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
                 {m.version_label}
               </span>
               <span style={{
-                fontFamily: 'IBM Plex Mono', fontSize: 9, fontWeight: 600, letterSpacing: '0.06em',
+                fontFamily: 'JetBrains Mono', fontSize: 9, fontWeight: 600, letterSpacing: '0.06em',
                 color: statusC, padding: '2px 5px', borderRadius: 3,
                 background: `${statusC}18`, border: `1px solid ${statusC}30`,
                 display: 'inline-block',
               }}>
                 {statusLabel}
               </span>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
                 {m.metrics?.rmse != null ? m.metrics.rmse.toFixed(2) : '—'}
               </span>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-secondary)' }}>
                 {m.metrics?.mae != null ? m.metrics.mae.toFixed(2) : '—'}
               </span>
               <span style={{
-                fontFamily: 'IBM Plex Mono', fontSize: 11,
+                fontFamily: 'JetBrains Mono', fontSize: 11,
                 color: (m.metrics?.directional_accuracy_pct ?? 0) > 55 ? '#22C55E' : 'var(--text-secondary)',
               }}>
                 {m.metrics?.directional_accuracy_pct != null
@@ -525,7 +525,7 @@ export default function SystemStatsPage() {
               borderRadius: 10, padding: '16px 18px', borderLeft: `3px solid ${c}`,
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
-                <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 14, fontWeight: 700, color: coin === 'BTC' ? '#F59E0B' : '#818CF8' }}>
+                <span style={{ fontFamily: 'JetBrains Mono', fontSize: 14, fontWeight: 700, color: coin === 'BTC' ? '#F59E0B' : '#4F46E5' }}>
                   {coin}
                 </span>
                 <StatusBadge status={s?.status ?? 'unknown'} />
@@ -538,8 +538,8 @@ export default function SystemStatsPage() {
                   ['Run count', s?.run_count != null ? fmtN(s.run_count) : '—'],
                 ] as [string, string][]).map(([k, v]) => (
                   <div key={k} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: 12, color: 'var(--text-muted)' }}>{k}</span>
-                    <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: 'var(--text-secondary)' }}>{v}</span>
+                    <span style={{ fontFamily: 'Hanken Grotesk', fontSize: 12, color: 'var(--text-muted)' }}>{k}</span>
+                    <span style={{ fontFamily: 'JetBrains Mono', fontSize: 11, color: 'var(--text-secondary)' }}>{v}</span>
                   </div>
                 ))}
               </div>
@@ -577,16 +577,16 @@ export default function SystemStatsPage() {
                 display: 'flex', justifyContent: 'space-between', alignItems: 'center',
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <Zap size={13} color={coin === 'BTC' ? '#F59E0B' : '#818CF8'} />
-                  <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 13, fontWeight: 700, color: coin === 'BTC' ? '#F59E0B' : '#818CF8' }}>
+                  <Zap size={13} color={coin === 'BTC' ? '#F59E0B' : '#4F46E5'} />
+                  <span style={{ fontFamily: 'JetBrains Mono', fontSize: 13, fontWeight: 700, color: coin === 'BTC' ? '#F59E0B' : '#4F46E5' }}>
                     {coin}
                   </span>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontFamily: 'IBM Plex Mono', fontSize: 16, fontWeight: 700, color: 'var(--text-primary)' }}>
+                  <div style={{ fontFamily: 'JetBrains Mono', fontSize: 16, fontWeight: 700, color: 'var(--text-primary)' }}>
                     ${info.price?.toLocaleString('en-US', { minimumFractionDigits: coin === 'BTC' ? 2 : 6, maximumFractionDigits: coin === 'BTC' ? 2 : 6 })}
                   </div>
-                  <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
+                  <div style={{ fontFamily: 'Hanken Grotesk', fontSize: 11, color: 'var(--text-muted)', marginTop: 2 }}>
                     {relTime(info.date)}
                   </div>
                 </div>
@@ -601,10 +601,10 @@ export default function SystemStatsPage() {
         marginTop: 32, paddingTop: 14, borderTop: '1px solid var(--border)',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       }}>
-        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)' }}>
+        <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)' }}>
           GET /api/system/overview · auto-refresh {REFRESH_SEC}s
         </span>
-        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)' }}>
+        <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)' }}>
           {data?.timestamp
             ? new Date(data.timestamp).toLocaleString('en-US', { hour12: false })
             : '—'}

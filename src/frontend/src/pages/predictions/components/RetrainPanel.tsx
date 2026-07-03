@@ -27,7 +27,7 @@ export default function RetrainPanel({ open, onToggle, retrainJobs, retrainLoadi
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
           <RefreshCw size={14} color="var(--accent-light)" />
-          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+          <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
             Model Retraining
           </span>
         </div>
@@ -52,7 +52,7 @@ export default function RetrainPanel({ open, onToggle, retrainJobs, retrainLoadi
                   </div>
                   {latestJob ? (
                     <div style={{ marginBottom: '10px' }}>
-                      <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-secondary)', marginBottom: '2px' }}>
+                      <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', color: 'var(--text-secondary)', marginBottom: '2px' }}>
                         Status:{' '}
                         <span className="font-mono" style={{
                           color: latestJob.status === 'completed' ? 'var(--up)'
@@ -62,18 +62,18 @@ export default function RetrainPanel({ open, onToggle, retrainJobs, retrainLoadi
                         </span>
                       </div>
                       {latestJob.finished_at && (
-                        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-muted)' }}>
+                        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', color: 'var(--text-muted)' }}>
                           {timeAgo(latestJob.finished_at)}
                         </div>
                       )}
                       {latestJob.error && (
-                        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', color: 'var(--down)', marginTop: '2px' }}>
+                        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', color: 'var(--down)', marginTop: '2px' }}>
                           {latestJob.error.slice(0, 40)}{latestJob.error.length > 40 ? '…' : ''}
                         </div>
                       )}
                     </div>
                   ) : (
-                    <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-muted)', marginBottom: '10px' }}>
+                    <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', color: 'var(--text-muted)', marginBottom: '10px' }}>
                       No recent jobs
                     </div>
                   )}
@@ -82,8 +82,8 @@ export default function RetrainPanel({ open, onToggle, retrainJobs, retrainLoadi
                     disabled={disabled}
                     style={{
                       width: '100%', padding: '7px 0', borderRadius: '6px',
-                      fontSize: '11px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600,
-                      border: `1px solid ${disabled ? 'var(--border)' : 'rgba(99,102,241,0.3)'}`,
+                      fontSize: '11px', fontFamily: 'Hanken Grotesk', fontWeight: 600,
+                      border: `1px solid ${disabled ? 'var(--border)' : 'rgba(79,70,229,0.3)'}`,
                       background: disabled ? 'transparent' : 'var(--accent-muted)',
                       color: disabled ? 'var(--text-muted)' : 'var(--accent-light)',
                       cursor: disabled ? 'not-allowed' : 'pointer',

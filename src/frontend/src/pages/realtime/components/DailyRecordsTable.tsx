@@ -22,10 +22,10 @@ export default function DailyRecordsTable({
         padding: '14px 20px', borderBottom: '1px solid var(--border)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
           Daily Records
         </div>
-        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
           {totalRecords} records · newest first
         </div>
       </div>

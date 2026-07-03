@@ -32,7 +32,7 @@ const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
 
 function Cite({ n }: { n: number }) {
   return (
-    <sup style={{ fontFamily: 'IBM Plex Mono', fontSize: '10px', color: 'var(--accent-light)', marginLeft: '2px' }}>
+    <sup style={{ fontFamily: 'JetBrains Mono', fontSize: '10px', color: 'var(--accent-light)', marginLeft: '2px' }}>
       [{n}]
     </sup>
   );
@@ -42,7 +42,7 @@ function Cite({ n }: { n: number }) {
 function MapRow({ theory, code }: { theory: React.ReactNode; code: React.ReactNode }) {
   return (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '8px' }}>
-      <span style={{ fontSize: '12.5px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', flex: '1 1 200px' }}>
+      <span style={{ fontSize: '12.5px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', flex: '1 1 200px' }}>
         {theory}
       </span>
       <ArrowRight size={13} color="var(--text-muted)" style={{ flexShrink: 0 }} />
@@ -103,8 +103,8 @@ function OverviewSection() {
               border: `1px solid color-mix(in srgb, ${x.c} 20%, var(--border))`,
               borderTop: `3px solid ${x.c}`, borderRadius: '8px', padding: '13px',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '12.5px', color: 'var(--text-primary)', marginBottom: '5px' }}>{x.t}</div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '11.5px', color: 'var(--text-secondary)', lineHeight: 1.55 }}>{x.d}</div>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '12.5px', color: 'var(--text-primary)', marginBottom: '5px' }}>{x.t}</div>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '11.5px', color: 'var(--text-secondary)', lineHeight: 1.55 }}>{x.d}</div>
             </div>
           ))}
         </div>
@@ -208,8 +208,8 @@ function ModelSection() {
               border: `1px solid color-mix(in srgb, ${x.c} 22%, var(--border))`,
               borderTop: `3px solid ${x.c}`, borderRadius: '8px', padding: '14px',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '6px' }}>{x.t}</div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{x.d}</div>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '6px' }}>{x.t}</div>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{x.d}</div>
             </div>
           ))}
         </div>
@@ -462,24 +462,24 @@ function ReferencesSection() {
             }}>
               <div style={{
                 width: '26px', height: '26px', borderRadius: '6px',
-                background: 'var(--accent-muted)', border: '1px solid rgba(99,102,241,0.2)',
+                background: 'var(--accent-muted)', border: '1px solid rgba(79,70,229,0.2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>
-                <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '11px', color: 'var(--accent-light)', fontWeight: 700 }}>{ref.n}</span>
+                <span style={{ fontFamily: 'JetBrains Mono', fontSize: '11px', color: 'var(--accent-light)', fontWeight: 700 }}>{ref.n}</span>
               </div>
               <div style={{ flex: 1 }}>
                 <span style={{
-                  fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 600,
+                  fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 600,
                   color: typeColor[ref.type] ?? 'var(--text-muted)', padding: '2px 7px', borderRadius: '4px',
                   background: `color-mix(in srgb, ${typeColor[ref.type] ?? 'gray'} 12%, transparent)`,
                   border: `1px solid color-mix(in srgb, ${typeColor[ref.type] ?? 'gray'} 25%, transparent)`,
                 }}>{ref.type.toUpperCase()}</span>
-                <p style={{ margin: '6px 0 6px', fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.6 }}>
+                <p style={{ margin: '6px 0 6px', fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.6 }}>
                   {ref.citation}
                 </p>
                 <a href={ref.doi} target="_blank" rel="noopener noreferrer" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '4px',
-                  fontFamily: 'IBM Plex Mono', fontSize: '10px', color: 'var(--accent-light)', textDecoration: 'none',
+                  fontFamily: 'JetBrains Mono', fontSize: '10px', color: 'var(--accent-light)', textDecoration: 'none',
                 }}>
                   <ExternalLink size={10} />{ref.doi}
                 </a>
@@ -492,7 +492,7 @@ function ReferencesSection() {
       <SectionCard>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Network size={14} color="var(--text-muted)" />
-          <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans' }}>
+          <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk' }}>
             Code minh hoạ trích trực tiếp từ <strong style={{ color: 'var(--text-secondary)' }}>src/ml/</strong>{' '}
             (model.py, preprocess.py, train_lstm.py, inference.py) — môn <strong style={{ color: 'var(--text-secondary)' }}>CS315.F21.CN2 — Advanced Machine Learning</strong>.
           </span>
@@ -516,14 +516,14 @@ export default function LSTMResearchPage() {
             LSTM — Ứng dụng vào dự án
           </h1>
           <span style={{
-            fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 600,
+            fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 600,
             padding: '3px 8px', borderRadius: '5px',
-            background: 'var(--purple-subtle)', border: '1px solid rgba(167,139,250,0.2)', color: 'var(--purple)',
+            background: 'var(--purple-subtle)', border: '1px solid rgba(124,58,237,0.2)', color: 'var(--purple)',
           }}>
             APPLIED
           </span>
         </div>
-        <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
           Cách dự án dùng LSTM để dự đoán giá BTC / DOGE · code thật từ src/ml/ · CS315.F21.CN2
         </p>
       </div>

@@ -111,7 +111,7 @@ const DOCS: DocEntry[] = [
     description: 'JWT stateless auth (TTL 24h). REST endpoints: prices, predictions, model registry, accuracy. Merges batch + speed views per query. Auto-refresh interceptor.',
     inApp: 'doc-api',
     category: 'Serving Layer',
-    accent: '#6366f1',
+    accent: '#4F46E5',
     tags: ['FastAPI', 'JWT', 'REST'],
     badge: 'IN-APP',
   },
@@ -123,7 +123,7 @@ const DOCS: DocEntry[] = [
     description: 'React 19 + TypeScript + Vite + Tailwind. 5 trang phân tích: Dashboard, Realtime, Technical, Predictions, Correlation. Streamlit dashboard port 8501.',
     inApp: 'doc-frontend',
     category: 'Serving Layer',
-    accent: '#6366f1',
+    accent: '#4F46E5',
     tags: ['React', 'Streamlit', 'Frontend'],
     badge: 'IN-APP',
   },
@@ -213,7 +213,7 @@ function DocCard({
       {/* Top row: category chip + number */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
         <span style={{
-          fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 700,
+          fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 700,
           color: entry.accent,
           padding: '2px 8px', borderRadius: '4px',
           background: `color-mix(in srgb, ${entry.accent} 14%, transparent)`,
@@ -225,10 +225,10 @@ function DocCard({
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           {entry.badge && (
             <span style={{
-              fontFamily: 'IBM Plex Mono', fontSize: '8px', fontWeight: 700,
+              fontFamily: 'JetBrains Mono', fontSize: '8px', fontWeight: 700,
               padding: '2px 6px', borderRadius: '4px',
-              background: entry.badge === 'HOT' ? 'rgba(248,113,113,0.15)' : 'rgba(167,139,250,0.15)',
-              border: entry.badge === 'HOT' ? '1px solid rgba(248,113,113,0.3)' : '1px solid rgba(167,139,250,0.3)',
+              background: entry.badge === 'HOT' ? 'rgba(220,38,38,0.15)' : 'rgba(124,58,237,0.15)',
+              border: entry.badge === 'HOT' ? '1px solid rgba(220,38,38,0.3)' : '1px solid rgba(124,58,237,0.3)',
               color: entry.badge === 'HOT' ? '#f87171' : '#a78bfa',
               letterSpacing: '0.06em',
             }}>
@@ -236,7 +236,7 @@ function DocCard({
             </span>
           )}
           <span style={{
-            fontFamily: 'IBM Plex Mono', fontSize: '10px', fontWeight: 700,
+            fontFamily: 'JetBrains Mono', fontSize: '10px', fontWeight: 700,
             color: 'var(--text-muted)',
           }}>
             #{entry.num}
@@ -249,7 +249,7 @@ function DocCard({
         <span style={{ fontSize: '20px', lineHeight: 1, flexShrink: 0 }}>{entry.emoji}</span>
         <h3 style={{
           margin: 0, fontSize: '14px', fontWeight: 700,
-          color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.3,
+          color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.3,
         }}>
           {entry.title}
         </h3>
@@ -258,7 +258,7 @@ function DocCard({
       {/* Description */}
       <p style={{
         margin: '0 0 12px', fontSize: '12px', lineHeight: 1.65,
-        color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans',
+        color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk',
       }}>
         {entry.description}
       </p>
@@ -267,7 +267,7 @@ function DocCard({
       <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
         {entry.tags.map(tag => (
           <span key={tag} style={{
-            fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 500,
+            fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 500,
             padding: '2px 7px', borderRadius: '4px',
             background: 'var(--bg-elevated)', border: '1px solid var(--border)',
             color: 'var(--text-muted)',
@@ -323,15 +323,15 @@ export default function DocsPage({ onNavigate }: Props) {
             Documents
           </h1>
           <span style={{
-            fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 700,
+            fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 700,
             padding: '3px 8px', borderRadius: '5px',
-            background: 'var(--accent-subtle)', border: '1px solid rgba(99,102,241,0.2)',
+            background: 'var(--accent-subtle)', border: '1px solid rgba(79,70,229,0.2)',
             color: 'var(--accent-light)', letterSpacing: '0.05em',
           }}>
             {DOCS.length} DOCS
           </span>
         </div>
-        <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
           Tài liệu kỹ thuật · CS315.F21.CN2 Advanced Machine Learning · Lê Quang Hoài Đức
         </p>
       </div>
@@ -351,7 +351,7 @@ export default function DocsPage({ onNavigate }: Props) {
             {cat}
             {cat !== 'All' && (
               <span style={{
-                marginLeft: '5px', fontFamily: 'IBM Plex Mono', fontSize: '9px',
+                marginLeft: '5px', fontFamily: 'JetBrains Mono', fontSize: '9px',
                 color: activeCategory === cat ? 'var(--accent-light)' : 'var(--text-muted)',
               }}>
                 {DOCS.filter(d => d.category === cat).length}
@@ -392,7 +392,7 @@ export default function DocsPage({ onNavigate }: Props) {
         background: 'var(--bg-elevated)', borderRadius: '8px', border: '1px solid var(--border)',
         display: 'flex', alignItems: 'center', gap: '10px',
       }}>
-        <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans' }}>
+        <span style={{ fontSize: '13px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk' }}>
           Tất cả 12 tài liệu mở trực tiếp trong app ·
           <span style={{ color: 'var(--accent-light)', marginLeft: '4px' }}>IN-APP</span> — nội dung học thuật bằng tiếng Việt đầy đủ · CS315.F21.CN2
         </span>

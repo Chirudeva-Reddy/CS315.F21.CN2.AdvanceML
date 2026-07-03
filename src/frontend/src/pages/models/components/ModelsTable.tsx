@@ -18,7 +18,7 @@ function DirAccPill({ v, size = 12 }: { v: number | null | undefined; size?: num
   const bg    = v >= 60 ? 'var(--up-subtle)' : v >= 50 ? 'var(--warn-subtle)' : 'var(--down-subtle)';
   return (
     <span style={{
-      fontFamily: 'IBM Plex Mono', fontSize: size, color,
+      fontFamily: 'JetBrains Mono', fontSize: size, color,
       background: bg, borderRadius: 4, padding: '2px 6px',
     }}>
       {v.toFixed(1)}%
@@ -32,16 +32,16 @@ function FoldBar({ fold, max = 100 }: { fold: FoldMetric; max?: number }) {
   const color = fold.dir_acc >= 60 ? 'var(--up)' : fold.dir_acc >= 50 ? 'var(--warn)' : 'var(--down)';
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 5 }}>
-      <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-muted)', width: 16, textAlign: 'right' }}>
+      <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-muted)', width: 16, textAlign: 'right' }}>
         #{fold.fold}
       </span>
       <div style={{ flex: 1, height: 6, background: 'var(--border)', borderRadius: 3, overflow: 'hidden' }}>
         <div style={{ width: `${pct}%`, height: '100%', background: color, borderRadius: 3, transition: 'width 0.4s ease' }} />
       </div>
-      <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color, width: 38, textAlign: 'right' }}>
+      <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color, width: 38, textAlign: 'right' }}>
         {fold.dir_acc.toFixed(1)}%
       </span>
-      <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: 10, color: 'var(--text-muted)', width: 60 }}>
+      <span style={{ fontFamily: 'Hanken Grotesk', fontSize: 10, color: 'var(--text-muted)', width: 60 }}>
         {fmtMetricDollar(fold.rmse) ?? '—'}
       </span>
     </div>
@@ -56,14 +56,14 @@ function ScoreDetail({ sr }: { sr: ScoreReport }) {
   return (
     <div style={{
       padding: '16px 20px 20px',
-      background: 'rgba(255,255,255,0.02)',
+      background: 'rgba(23,25,30,0.02)',
       borderTop: '1px solid var(--border)',
     }}>
       <div style={{ display: 'grid', gridTemplateColumns: folds.length ? '1fr 1fr' : '1fr', gap: 20 }}>
 
         {/* Left: Walk-forward summary + training config */}
         <div>
-          <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: 10 }}>
+          <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: 10 }}>
             Walk-Forward Cross-Validation
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 14 }}>
@@ -75,11 +75,11 @@ function ScoreDetail({ sr }: { sr: ScoreReport }) {
                 background: 'var(--bg-card)', border: '1px solid var(--border)',
                 borderRadius: 7, padding: '9px 12px',
               }}>
-                <div style={{ fontSize: 9, color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>
+                <div style={{ fontSize: 9, color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 4 }}>
                   {label}
                 </div>
                 <div style={{
-                  fontFamily: 'IBM Plex Mono', fontSize: 14, fontWeight: 600,
+                  fontFamily: 'JetBrains Mono', fontSize: 14, fontWeight: 600,
                   color: highlight && wfDirAcc != null
                     ? wfDirAcc >= 60 ? 'var(--up)' : wfDirAcc >= 50 ? 'var(--warn)' : 'var(--down)'
                     : 'var(--text-primary)',
@@ -90,7 +90,7 @@ function ScoreDetail({ sr }: { sr: ScoreReport }) {
             ))}
           </div>
 
-          <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: 8 }}>
+          <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: 8 }}>
             Training Config
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 18px' }}>
@@ -100,8 +100,8 @@ function ScoreDetail({ sr }: { sr: ScoreReport }) {
               { k: 'Window',        v: sr.window_days != null ? `${sr.window_days}d` : '—' },
               { k: 'Folds',         v: folds.length || '—' },
             ].map(({ k, v }) => (
-              <span key={k} style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
-                {k}: <span style={{ color: 'var(--text-primary)', fontFamily: 'IBM Plex Mono', fontSize: 11 }}>{String(v)}</span>
+              <span key={k} style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
+                {k}: <span style={{ color: 'var(--text-primary)', fontFamily: 'JetBrains Mono', fontSize: 11 }}>{String(v)}</span>
               </span>
             ))}
           </div>
@@ -110,7 +110,7 @@ function ScoreDetail({ sr }: { sr: ScoreReport }) {
         {/* Right: Per-fold dir acc bars */}
         {folds.length > 0 && (
           <div>
-            <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: 10 }}>
+            <div style={{ fontSize: 10, color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.6px', marginBottom: 10 }}>
               Per-Fold Dir Acc · RMSE
             </div>
             {folds.map(f => <FoldBar key={f.fold} fold={f} />)}
@@ -142,11 +142,11 @@ export default function ModelsTable({
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
           <Cpu size={15} color="var(--accent-light)" />
-          <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+          <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
             Registered Models
           </span>
         </div>
-        <div style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: 11, color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
           {models.length} models · click row to expand metrics
         </div>
       </div>
@@ -158,7 +158,7 @@ export default function ModelsTable({
           ))}
         </div>
       ) : models.length === 0 ? (
-        <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', fontSize: 13 }}>
+        <div style={{ padding: 40, textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', fontSize: 13 }}>
           No models registered yet. Run the inference pipeline to train models.
         </div>
       ) : (
@@ -200,7 +200,7 @@ export default function ModelsTable({
                   {/* Coin */}
                   <td onClick={e => e.stopPropagation()}>
                     <span style={{
-                      fontFamily: 'IBM Plex Mono', fontSize: 12, fontWeight: 600,
+                      fontFamily: 'JetBrains Mono', fontSize: 12, fontWeight: 600,
                       color: isBtc ? '#F7931A' : '#C2A633',
                       background: isBtc ? 'rgba(247,147,26,0.1)' : 'rgba(194,166,51,0.1)',
                       borderRadius: 4, padding: '2px 7px',
@@ -211,21 +211,21 @@ export default function ModelsTable({
 
                   {/* Horizon */}
                   <td onClick={e => e.stopPropagation()}>
-                    <span style={{ fontFamily: 'Outfit', fontSize: 14, fontWeight: 800, color: 'var(--text-primary)' }}>
+                    <span style={{ fontFamily: 'Bricolage Grotesque', fontSize: 14, fontWeight: 800, color: 'var(--text-primary)' }}>
                       H{m.horizon}
                     </span>
-                    <span style={{ fontSize: 10, color: 'var(--text-muted)', marginLeft: 4, fontFamily: 'Plus Jakarta Sans' }}>
+                    <span style={{ fontSize: 10, color: 'var(--text-muted)', marginLeft: 4, fontFamily: 'Hanken Grotesk' }}>
                       {m.horizon}d
                     </span>
                   </td>
 
                   {/* Model file */}
                   <td onClick={e => e.stopPropagation()}>
-                    <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: 'var(--text-secondary)' }}>
+                    <span style={{ fontFamily: 'JetBrains Mono', fontSize: 10, color: 'var(--text-secondary)' }}>
                       {m.model_id ?? '—'}
                     </span>
                     {!m.model_exists && (
-                      <span style={{ marginLeft: 6, fontSize: 9, color: 'var(--down)', fontFamily: 'Plus Jakarta Sans' }}>
+                      <span style={{ marginLeft: 6, fontSize: 9, color: 'var(--down)', fontFamily: 'Hanken Grotesk' }}>
                         missing
                       </span>
                     )}
@@ -233,7 +233,7 @@ export default function ModelsTable({
 
                   {/* RMSE */}
                   <td style={{ textAlign: 'right' }} onClick={e => e.stopPropagation()}>
-                    <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 12, color: 'var(--text-primary)' }}>
+                    <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--text-primary)' }}>
                       {m.metrics?.rmse != null ? fmtMetricDollar(m.metrics.rmse) : '—'}
                     </span>
                   </td>
@@ -250,7 +250,7 @@ export default function ModelsTable({
 
                   {/* Epochs */}
                   <td style={{ textAlign: 'right' }} onClick={e => e.stopPropagation()}>
-                    <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 12, color: 'var(--text-secondary)' }}>
+                    <span style={{ fontFamily: 'JetBrains Mono', fontSize: 12, color: 'var(--text-secondary)' }}>
                       {m.metrics?.epochs_trained ?? '—'}
                     </span>
                   </td>

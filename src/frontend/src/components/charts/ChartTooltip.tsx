@@ -23,14 +23,14 @@ export default function ChartTooltip({
   const fmtValue = format ?? ((v: number) => fmt(v, decimals));
   return (
     <div className="chart-tooltip">
-      <div style={{ fontSize: '10px', color: 'var(--text-secondary)', marginBottom: '5px', fontFamily: 'IBM Plex Mono' }}>
+      <div style={{ fontSize: '10px', color: 'var(--text-secondary)', marginBottom: '5px', fontFamily: 'JetBrains Mono' }}>
         {label}
       </div>
       {payload.map((p, i) => (
         (!skipNull || p.value != null) && (
           <div key={i} style={{ display: 'flex', gap: '7px', alignItems: 'center', marginBottom: '2px' }}>
             <div style={{ width: '7px', height: '7px', borderRadius: '2px', background: p.color }} />
-            <span style={{ fontSize: '11px', color: 'var(--text-secondary)', flex: 1, fontFamily: 'Plus Jakarta Sans' }}>{p.name}</span>
+            <span style={{ fontSize: '11px', color: 'var(--text-secondary)', flex: 1, fontFamily: 'Hanken Grotesk' }}>{p.name}</span>
             <span className="font-mono" style={{ fontSize: '11px', color: 'var(--text-primary)' }}>{fmtValue(p.value)}</span>
           </div>
         )

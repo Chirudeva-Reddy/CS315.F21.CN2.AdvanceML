@@ -25,7 +25,7 @@ export default function PublicShell({ page, setPage, children }: PublicShellProp
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '20px' }}>
           <div style={{
             width: '26px', height: '26px', borderRadius: '7px',
-            background: 'var(--accent-subtle)', border: '1px solid rgba(99,102,241,0.2)',
+            background: 'var(--accent-subtle)', border: '1px solid rgba(79,70,229,0.2)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
           }}>
             <TrendingUp size={13} color="var(--accent-light)" />
@@ -65,7 +65,7 @@ export default function PublicShell({ page, setPage, children }: PublicShellProp
               display: 'flex', alignItems: 'center', gap: '5px',
               marginLeft: '12px', background: 'none', border: 'none',
               cursor: 'pointer', color: 'var(--text-muted)',
-              fontFamily: 'Plus Jakarta Sans', fontSize: '11px',
+              fontFamily: 'Hanken Grotesk', fontSize: '11px',
               padding: '4px 8px', borderRadius: '5px',
               transition: 'color 0.12s',
             }}

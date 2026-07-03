@@ -25,8 +25,8 @@ export default function PredictButton({ job, busy, onRun }: PredictButtonProps) 
       style={{
         display: 'inline-flex', alignItems: 'center', gap: '7px', flexShrink: 0,
         padding: '8px 16px', borderRadius: '8px',
-        fontSize: '12px', fontWeight: 600, fontFamily: 'Plus Jakarta Sans',
-        border: `1px solid ${running ? 'var(--border)' : 'rgba(99,102,241,0.4)'}`,
+        fontSize: '12px', fontWeight: 600, fontFamily: 'Hanken Grotesk',
+        border: `1px solid ${running ? 'var(--border)' : 'rgba(79,70,229,0.4)'}`,
         background: running ? 'transparent' : 'var(--accent-muted)',
         color: running ? 'var(--text-muted)' : 'var(--accent-light)',
         cursor: running ? 'not-allowed' : 'pointer',

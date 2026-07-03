@@ -67,7 +67,7 @@ export default function PageTitle({ title, subtitle, right }: PageTitleProps) {
           justifyContent: 'space-between',
           marginTop:      '10px',
         }}>
-          <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+          <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
             {subtitle}
           </div>
           {right && (

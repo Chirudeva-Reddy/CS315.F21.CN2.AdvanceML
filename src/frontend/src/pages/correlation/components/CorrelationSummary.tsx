@@ -15,7 +15,7 @@ export default function CorrelationSummary({ mainCorr, computedAt, docs }: Corre
       <div className="card" style={{ padding: '28px', textAlign: 'center' }}>
         <div style={{
           fontSize: '10px', color: 'var(--text-secondary)', letterSpacing: '0.08em',
-          textTransform: 'uppercase', fontFamily: 'Plus Jakarta Sans', marginBottom: '14px',
+          textTransform: 'uppercase', fontFamily: 'Hanken Grotesk', marginBottom: '14px',
         }}>
           BTC — DOGE Pearson r
         </div>
@@ -29,7 +29,7 @@ export default function CorrelationSummary({ mainCorr, computedAt, docs }: Corre
           display: 'inline-block', padding: '4px 14px', borderRadius: '6px',
           background: corrBg(mainCorr),
           fontSize: '12px', fontWeight: 600, color: corrColor(mainCorr),
-          fontFamily: 'Plus Jakarta Sans',
+          fontFamily: 'Hanken Grotesk',
         }}>
           {corrLabel(mainCorr)}
         </div>
@@ -37,10 +37,10 @@ export default function CorrelationSummary({ mainCorr, computedAt, docs }: Corre
 
       {/* Interpretation card */}
       <div className="card" style={{ padding: '20px' }}>
-        <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans', marginBottom: '10px' }}>
+        <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk', marginBottom: '10px' }}>
           Interpretation
         </div>
-        <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.7', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: '1.7', fontFamily: 'Hanken Grotesk' }}>
           A coefficient of{' '}
           <span className="font-mono" style={{ color: corrColor(mainCorr) }}>
             {mainCorr.toFixed(3)}
@@ -53,7 +53,7 @@ export default function CorrelationSummary({ mainCorr, computedAt, docs }: Corre
         </div>
         <div style={{
           marginTop: '12px', fontSize: '11px', color: 'var(--text-muted)',
-          fontFamily: 'Plus Jakarta Sans',
+          fontFamily: 'Hanken Grotesk',
         }}>
           Computed: {computedAt} · Spark batch job
         </div>
@@ -65,7 +65,7 @@ export default function CorrelationSummary({ mainCorr, computedAt, docs }: Corre
           <div style={{
             padding: '13px 18px', borderBottom: '1px solid var(--border)',
             fontSize: '13px', fontWeight: 600, color: 'var(--text-primary)',
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: 'Hanken Grotesk',
           }}>
             Raw Data
           </div>

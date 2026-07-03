@@ -3,14 +3,6 @@ import { Wifi, WifiOff } from 'lucide-react';
 import { fmt, fmtVolume } from '../../../lib/format';
 import type { PredictionsResponse, RealtimeResponse } from '../../../api/client';
 
-const stagger = {
-  animate: { transition: { staggerChildren: 0.04 } },
-};
-const fadeUp = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.22 } },
-};
-
 interface StatCardsProps {
   decimals: number;
   price: number | null;
@@ -18,64 +10,96 @@ interface StatCardsProps {
   prediction?: PredictionsResponse;
 }
 
-/** Top row of four KPI cards: price, 24h range, next-day forecast, volume. */
+/** Top KPI block rendered as a source file: each metric is a const declaration. */
 export default function StatCards({ decimals, price, realtime, prediction }: StatCardsProps) {
   const nextDayP = prediction?.next_day_price;
+  const live = realtime?.source === 'realtime';
+  const up = nextDayP != null && price != null && nextDayP >= price;
 
   return (
     <motion.div
-      variants={stagger}
-      initial="initial"
-      animate="animate"
-      style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px', marginBottom: '16px' }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.28 }}
+      className="editor-pane"
+      style={{ marginBottom: '16px' }}
     >
-      {/* Current price */}
-      <motion.div variants={fadeUp} className="metric-card">
-        <div className="metric-label">Current Price</div>
-        <div className="metric-value" style={{ fontSize: '20px', color: 'var(--text-primary)' }}>
-          {fmt(price, decimals)}
-        </div>
-        <div className="metric-sub" style={{ display: 'flex', alignItems: 'center', gap: '5px', marginTop: '8px' }}>
-          {realtime?.source === 'realtime'
-            ? <><Wifi size={10} color="var(--up)" /> <span style={{ color: 'var(--up)' }}>Live stream</span></>
-            : <><WifiOff size={10} /> Batch data</>}
-        </div>
-      </motion.div>
+      <div className="pane-titlebar">
+        <div className="win-dots"><i /><i /><i /></div>
+        <span><span className="file">overview</span><span className="ext">.tsx</span></span>
+        <span style={{ flex: 1 }} />
+        <span className="tok-com">// snapshot · refreshes 30s</span>
+      </div>
 
-      {/* 24h range */}
-      <motion.div variants={fadeUp} className="metric-card">
-        <div className="metric-label">24h Range</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '2px' }}>
-          <div className="font-mono" style={{ fontSize: '14px', color: 'var(--up)', fontWeight: 500 }}>
-            ↑ {fmt(realtime?.daily_high, decimals)}
-          </div>
-          <div className="font-mono" style={{ fontSize: '14px', color: 'var(--down)', fontWeight: 500 }}>
-            ↓ {fmt(realtime?.daily_low, decimals)}
-          </div>
-        </div>
-      </motion.div>
+      <div className="code-body" style={{ padding: '10px 0' }}>
+        {/* price */}
+        <Row>
+          <span className="tok-key">const</span>{' '}
+          <span className="tok-fn">price</span>{' '}
+          <span className="tok-punc">=</span>{' '}
+          <span className="tok-num" style={{ fontSize: '15px', fontWeight: 600 }}>{fmt(price, decimals)}</span>
+          <Comment>
+            {live
+              ? <><Wifi size={11} style={{ verticalAlign: '-1px' }} /> live stream</>
+              : <><WifiOff size={11} style={{ verticalAlign: '-1px' }} /> batch data</>}
+          </Comment>
+        </Row>
 
-      {/* Next-day forecast */}
-      <motion.div variants={fadeUp} className="metric-card" style={{
-        background: nextDayP ? `linear-gradient(135deg, var(--bg-card) 70%, var(--accent-muted))` : 'var(--bg-card)',
-      }}>
-        <div className="metric-label">Next-Day Forecast</div>
-        <div className="metric-value" style={{ color: nextDayP ? 'var(--accent-light)' : 'var(--text-muted)' }}>
-          {fmt(nextDayP, decimals)}
-        </div>
-        {prediction?.model_version && (
-          <div className="metric-sub">{prediction.model_version}</div>
-        )}
-      </motion.div>
+        {/* 24h range */}
+        <Row>
+          <span className="tok-key">const</span>{' '}
+          <span className="tok-fn">range_24h</span>{' '}
+          <span className="tok-punc">= [</span>
+          <span className="tok-str">{fmt(realtime?.daily_low, decimals)}</span>
+          <span className="tok-punc">, </span>
+          <span className="tok-str">{fmt(realtime?.daily_high, decimals)}</span>
+          <span className="tok-punc">]</span>
+          <Comment>// low · high</Comment>
+        </Row>
 
-      {/* Volume */}
-      <motion.div variants={fadeUp} className="metric-card">
-        <div className="metric-label">Avg Volume</div>
-        <div className="metric-value" style={{ fontSize: '18px' }}>
-          {fmtVolume(realtime?.avg_volume)}
-        </div>
-        <div className="metric-sub">24h trading volume</div>
-      </motion.div>
+        {/* forecast */}
+        <Row>
+          <span className="tok-key">const</span>{' '}
+          <span className="tok-fn">forecast</span>{' '}
+          <span className="tok-punc">=</span>{' '}
+          <span className="tok-fn">predict</span><span className="tok-punc">()</span>{' '}
+          <span className="tok-punc">→</span>{' '}
+          <span style={{ color: nextDayP ? 'var(--accent-light)' : 'var(--text-muted)', fontWeight: 600 }}>
+            {fmt(nextDayP, decimals)}
+          </span>{' '}
+          {nextDayP != null && (
+            <span style={{ color: up ? 'var(--up)' : 'var(--down)' }}>{up ? '↑' : '↓'}</span>
+          )}
+          <Comment>{prediction?.model_version ? `// ${prediction.model_version}` : '// next-day'}</Comment>
+        </Row>
+
+        {/* volume */}
+        <Row last>
+          <span className="tok-key">const</span>{' '}
+          <span className="tok-fn">volume</span>{' '}
+          <span className="tok-punc">=</span>{' '}
+          <span className="tok-num" style={{ fontWeight: 600 }}>{fmtVolume(realtime?.avg_volume)}</span>
+          <Comment>// avg 24h</Comment>
+        </Row>
+      </div>
     </motion.div>
+  );
+}
+
+function Row({ children, last }: { children: React.ReactNode; last?: boolean }) {
+  return (
+    <div className="code-row" style={last ? undefined : { }}>
+      <div style={{ gridColumn: '2', paddingRight: '18px', display: 'flex', alignItems: 'baseline', flexWrap: 'wrap' }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function Comment({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="tok-com" style={{ marginLeft: '14px', display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '11.5px' }}>
+      {children}
+    </span>
   );
 }

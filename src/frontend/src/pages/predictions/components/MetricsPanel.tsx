@@ -25,10 +25,10 @@ export default function MetricsPanel({ predictions, decimals, periodLabel, outlo
       {/* Next-day */}
       <div className="card" style={{
         padding: '16px',
-        borderColor: 'rgba(99,102,241,0.2)',
+        borderColor: 'rgba(79,70,229,0.2)',
         background: 'linear-gradient(135deg, var(--bg-card) 60%, var(--accent-muted))',
       }}>
-        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600, color: 'var(--accent-light)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '8px' }}>
+        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', fontWeight: 600, color: 'var(--accent-light)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '8px' }}>
           Next-Day Forecast
         </div>
         <div className="font-mono" style={{ fontSize: '20px', fontWeight: 500, color: 'var(--text-primary)', marginBottom: '10px', lineHeight: 1 }}>
@@ -55,7 +55,7 @@ export default function MetricsPanel({ predictions, decimals, periodLabel, outlo
 
       {/* Period high */}
       <div className="card" style={{ padding: '14px 16px' }}>
-        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '4px' }}>
+        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '4px' }}>
           {periodLabel} High
         </div>
         <div className="font-mono" style={{ fontSize: '15px', color: 'var(--up)' }}>
@@ -65,7 +65,7 @@ export default function MetricsPanel({ predictions, decimals, periodLabel, outlo
 
       {/* Period low */}
       <div className="card" style={{ padding: '14px 16px' }}>
-        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '4px' }}>
+        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '4px' }}>
           {periodLabel} Low
         </div>
         <div className="font-mono" style={{ fontSize: '15px', color: 'var(--down)' }}>
@@ -78,7 +78,7 @@ export default function MetricsPanel({ predictions, decimals, periodLabel, outlo
         padding: '14px 16px',
         background: `linear-gradient(135deg, var(--bg-card) 60%, ${outlook.color}0A)`,
       }}>
-        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '6px' }}>
+        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '6px' }}>
           {periodLabel} Outlook
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
@@ -87,7 +87,7 @@ export default function MetricsPanel({ predictions, decimals, periodLabel, outlo
             {outlook.label}
           </span>
         </div>
-        <div style={{ fontSize: '10px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-secondary)', marginTop: '4px' }}>
+        <div style={{ fontSize: '10px', fontFamily: 'Hanken Grotesk', color: 'var(--text-secondary)', marginTop: '4px' }}>
           {outlook.count} days
         </div>
       </div>

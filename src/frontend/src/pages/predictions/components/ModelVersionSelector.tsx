@@ -24,12 +24,12 @@ export default function ModelVersionSelector({
       <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '12px' }}>
         <Layers size={12} color="var(--accent-light)" />
         <span style={{
-          fontSize: '10px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600,
+          fontSize: '10px', fontFamily: 'Hanken Grotesk', fontWeight: 600,
           color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase',
         }}>
           H{activeHorizon} Model Version
         </span>
-        <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans' }}>
+        <span style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk' }}>
           · newest runs live · pick an archived build to compare
         </span>
       </div>
@@ -45,8 +45,8 @@ export default function ModelVersionSelector({
               style={{
                 display: 'flex', alignItems: 'center', gap: '7px',
                 padding: '8px 12px', borderRadius: '9px', cursor: 'pointer',
-                fontFamily: 'IBM Plex Mono', fontSize: '12px',
-                border: isSel ? '1px solid rgba(99,102,241,0.45)' : '1px solid var(--border)',
+                fontFamily: 'JetBrains Mono', fontSize: '12px',
+                border: isSel ? '1px solid rgba(79,70,229,0.45)' : '1px solid var(--border)',
                 background: isSel ? 'var(--accent-muted)' : 'var(--bg-elevated)',
                 color: isSel ? 'var(--accent-light)' : 'var(--text-secondary)',
                 transition: 'all 0.15s ease',
@@ -59,7 +59,7 @@ export default function ModelVersionSelector({
                   padding: '1px 6px', borderRadius: '4px', fontSize: '8px',
                   letterSpacing: '0.05em', textTransform: 'uppercase',
                   background: 'var(--accent-subtle)', color: 'var(--accent-light)',
-                  border: '1px solid rgba(99,102,241,0.25)',
+                  border: '1px solid rgba(79,70,229,0.25)',
                 }}>
                   default
                 </span>
@@ -80,10 +80,10 @@ export default function ModelVersionSelector({
           <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0 }}>
             <Archive size={14} color="var(--warn)" />
             <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+              <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
                 Archived build · <span className="font-mono">{selectedModel.model_id}</span>
               </div>
-              <div style={{ fontSize: '10px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', marginTop: '2px' }}>
+              <div style={{ fontSize: '10px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', marginTop: '2px' }}>
                 {hasForecast
                   ? 'Showing this version’s forecast. Re-run to refresh from the latest seed.'
                   : 'No forecast stored yet — run it on demand to generate one.'}

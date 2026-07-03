@@ -24,7 +24,7 @@ export default function Toast({ toast, errorIcon = 'x' }: ToastProps) {
             background: toast.type === 'ok' ? 'var(--up-subtle)' : 'var(--down-subtle)',
             border: `1px solid ${toast.type === 'ok' ? 'var(--up-border)' : 'var(--down-border)'}`,
             color: toast.type === 'ok' ? 'var(--up)' : 'var(--down)',
-            fontSize: '13px', fontWeight: 600, fontFamily: 'Plus Jakarta Sans',
+            fontSize: '13px', fontWeight: 600, fontFamily: 'Hanken Grotesk',
             display: 'flex', alignItems: 'center', gap: '8px',
           }}
         >

@@ -15,7 +15,7 @@ export default function StatusBadge({ status }: { status: string }) {
       display: 'inline-flex', alignItems: 'center', gap: '5px',
       padding: '3px 9px', borderRadius: '6px',
       background: bg, color,
-      fontSize: '11px', fontFamily: 'IBM Plex Mono',
+      fontSize: '11px', fontFamily: 'JetBrains Mono',
     }}>
       <Icon size={10} className={status === 'running' ? 'spin' : undefined} />
       {status}

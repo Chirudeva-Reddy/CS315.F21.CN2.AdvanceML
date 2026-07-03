@@ -12,7 +12,7 @@ export default function FrontendDoc() {
         title="React Frontend"
         subtitle="Presentation Layer — React 19 + TypeScript + Vite + Tailwind · Port 3000"
         badge="08"
-        badgeColor="#6366F1"
+        badgeColor="#4F46E5"
       />
 
       {/* 5 trang React */}
@@ -55,22 +55,22 @@ export default function FrontendDoc() {
             },
           ].map(page => (
             <div key={page.title} style={{
-              background: 'color-mix(in srgb, #6366F1 5%, var(--bg-card))',
-              border: '1px solid color-mix(in srgb, #6366F1 18%, var(--border))',
-              borderTop: '3px solid #6366F1',
+              background: 'color-mix(in srgb, #4F46E5 5%, var(--bg-card))',
+              border: '1px solid color-mix(in srgb, #4F46E5 18%, var(--border))',
+              borderTop: '3px solid #4F46E5',
               borderRadius: '8px', padding: '16px',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
                 {page.title}
               </div>
-              <p style={{ margin: '0 0 10px', fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Plus Jakarta Sans' }}>
+              <p style={{ margin: '0 0 10px', fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Hanken Grotesk' }}>
                 {page.desc}
               </p>
               <div style={{ borderTop: '1px solid var(--border)', paddingTop: '8px' }}>
-                <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'IBM Plex Mono', marginBottom: '3px' }}>
+                <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono', marginBottom: '3px' }}>
                   API: {page.api}
                 </div>
-                <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}>
+                <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}>
                   Source: {page.source}
                 </div>
               </div>

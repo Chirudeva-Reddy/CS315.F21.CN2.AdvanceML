@@ -37,7 +37,7 @@ function BlogImage({
           marginTop: '7px',
           fontSize: '11.5px',
           color: 'var(--text-muted)',
-          fontFamily: 'Plus Jakarta Sans',
+          fontFamily: 'Hanken Grotesk',
           fontStyle: 'italic',
           lineHeight: 1.6,
         }}>
@@ -66,7 +66,7 @@ function SourceCredit() {
       borderRadius: '8px', marginBottom: '20px',
     }}>
       <span style={{ fontSize: '15px', flexShrink: 0 }}>📚</span>
-      <p style={{ margin: 0, fontSize: '12.5px', lineHeight: 1.7, color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+      <p style={{ margin: 0, fontSize: '12.5px', lineHeight: 1.7, color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
         Phần lý thuyết và hình ảnh kiến trúc LSTM trong tài liệu này được giải thích lại (bằng ngôn ngữ dễ hiểu cho người mới) dựa trên bài viết kinh điển:{' '}
         <a
           href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/"
@@ -90,7 +90,7 @@ function NotationKey() {
       borderRadius: '8px', padding: '14px 18px', margin: '10px 0',
     }}>
       <div style={{
-        fontFamily: 'IBM Plex Mono', fontSize: '10px', color: 'var(--text-muted)',
+        fontFamily: 'JetBrains Mono', fontSize: '10px', color: 'var(--text-muted)',
         textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px',
       }}>
         Bảng tra ký hiệu — đọc trước khi xem công thức
@@ -109,7 +109,7 @@ function NotationKey() {
         ].map(([sym, desc], i) => (
           <div key={i} style={{ display: 'contents' }}>
             <div style={{ fontSize: '13px' }}>{sym}</div>
-            <div style={{ fontSize: '12px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.55 }}>{desc}</div>
+            <div style={{ fontSize: '12px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.55 }}>{desc}</div>
           </div>
         ))}
       </div>
@@ -441,13 +441,13 @@ export default function LSTMDoc() {
               borderTop: `3px solid ${card.color}`,
               borderRadius: '8px', padding: '14px',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '12.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '12.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
                 {card.title}
               </div>
               {card.items.map(item => (
                 <div key={item} style={{ display: 'flex', gap: '7px', alignItems: 'flex-start', marginBottom: '5px' }}>
                   <div style={{ width: '3px', height: '3px', borderRadius: '50%', background: card.color, flexShrink: 0, marginTop: '7px' }} />
-                  <span style={{ fontSize: '11.5px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.5 }}>{item}</span>
+                  <span style={{ fontSize: '11.5px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.5 }}>{item}</span>
                 </div>
               ))}
             </div>
@@ -498,7 +498,7 @@ export default function LSTMDoc() {
             alt="LSTM v3 Architecture Dual-Head"
             style={{ maxWidth: '100%', borderRadius: '8px', border: '1px solid var(--border)', background: '#f8f8f8' }}
           />
-          <figcaption style={{ marginTop: '7px', fontSize: '11.5px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', fontStyle: 'italic' }}>
+          <figcaption style={{ marginTop: '7px', fontSize: '11.5px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', fontStyle: 'italic' }}>
             LSTM v3 — Dual-Head: Price Head (đỏ) + Volatility Head (xanh). Tổng 219.662 tham số. Direction head không được sử dụng trong training v3.
           </figcaption>
         </figure>
@@ -622,7 +622,7 @@ class LSTMModel(nn.Module):
             alt="Walk-Forward Validation 6 Folds"
             style={{ maxWidth: '100%', borderRadius: '8px', border: '1px solid var(--border)', background: '#f8f8f8' }}
           />
-          <figcaption style={{ marginTop: '7px', fontSize: '11.5px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', fontStyle: 'italic' }}>
+          <figcaption style={{ marginTop: '7px', fontSize: '11.5px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', fontStyle: 'italic' }}>
             Walk-Forward Validation — 6 folds, cửa sổ train 730 ngày, validation 60 ngày, trượt 60 ngày giữa các fold
           </figcaption>
         </figure>
@@ -699,24 +699,24 @@ H15 dùng window 1095 ngày, H60 dùng toàn bộ lịch sử`}</MathBlock>
               border: `1px solid ${ref.highlight ? 'color-mix(in srgb, #a78bfa 25%, var(--border))' : 'var(--border)'}`,
               borderRadius: '7px',
             }}>
-              <div style={{ fontFamily: 'IBM Plex Mono', fontSize: '11px', color: ref.highlight ? '#a78bfa' : 'var(--accent-light)', marginBottom: '4px', fontWeight: 600 }}>
+              <div style={{ fontFamily: 'JetBrains Mono', fontSize: '11px', color: ref.highlight ? '#a78bfa' : 'var(--accent-light)', marginBottom: '4px', fontWeight: 600 }}>
                 {ref.url ? (
                   <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
                     {ref.cite} <span style={{ textDecoration: 'underline' }}>↗</span>
                   </a>
                 ) : ref.cite}
               </div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13px', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '3px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '13px', color: 'var(--text-primary)', fontWeight: 600, marginBottom: '3px' }}>
                 {ref.url ? (
                   <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'underline' }}>
                     {ref.title}
                   </a>
                 ) : ref.title}
               </div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: 'var(--text-secondary)' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '12px', color: 'var(--text-secondary)' }}>
                 <em>{ref.venue}</em>
               </div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '11.5px', color: 'var(--text-muted)', marginTop: '4px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '11.5px', color: 'var(--text-muted)', marginTop: '4px' }}>
                 {ref.note}
               </div>
             </div>

@@ -19,7 +19,7 @@ export function PageHeader({
         </h1>
         {badge && (
           <span style={{
-            fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 700,
+            fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 700,
             padding: '3px 8px', borderRadius: '5px',
             background: `color-mix(in srgb, ${badgeColor} 12%, transparent)`,
             border: `1px solid color-mix(in srgb, ${badgeColor} 25%, transparent)`,
@@ -30,7 +30,7 @@ export function PageHeader({
         )}
       </div>
       {subtitle && (
-        <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
           {subtitle}
         </p>
       )}
@@ -52,7 +52,7 @@ export function SectionTitle({
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
       <div style={{ width: '3px', height: '18px', background: accent, borderRadius: '2px', flexShrink: 0 }} />
-      <h2 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+      <h2 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
         {children}
       </h2>
     </div>
@@ -63,7 +63,7 @@ export function SubTitle({ children }: { children: React.ReactNode }) {
   return (
     <h3 style={{
       margin: '20px 0 10px', fontSize: '13.5px', fontWeight: 700,
-      color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans',
+      color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk',
     }}>
       {children}
     </h3>
@@ -74,7 +74,7 @@ export function BodyText({ children, style }: { children: React.ReactNode; style
   return (
     <p style={{
       margin: '0 0 12px', fontSize: '13.5px', lineHeight: 1.75,
-      color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans',
+      color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk',
       ...style,
     }}>
       {children}
@@ -102,7 +102,7 @@ export function Callout({ variant = 'info', children }: { variant?: CalloutVaria
       borderRadius: '8px', marginBottom: '14px',
     }}>
       <Icon size={15} color={color} style={{ flexShrink: 0, marginTop: '2px' }} />
-      <p style={{ margin: 0, fontSize: '13px', lineHeight: 1.7, color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+      <p style={{ margin: 0, fontSize: '13px', lineHeight: 1.7, color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
         {children}
       </p>
     </div>
@@ -120,7 +120,7 @@ export function CodeBlock({ children, lang = '' }: { children: string; lang?: st
     }}>
       {lang && (
         <div style={{
-          fontFamily: 'IBM Plex Mono', fontSize: '10px', color: 'var(--text-muted)',
+          fontFamily: 'JetBrains Mono', fontSize: '10px', color: 'var(--text-muted)',
           marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.06em',
         }}>
           {lang}
@@ -128,7 +128,7 @@ export function CodeBlock({ children, lang = '' }: { children: string; lang?: st
       )}
       <pre style={{ margin: 0 }}>
         <code style={{
-          fontFamily: 'IBM Plex Mono', fontSize: '12px', color: '#e6edf3',
+          fontFamily: 'JetBrains Mono', fontSize: '12px', color: '#e6edf3',
           whiteSpace: 'pre', display: 'block',
         }}>
           {children}
@@ -148,7 +148,7 @@ export function MathBlock({ children }: { children: React.ReactNode }) {
       overflowX: 'auto',
     }}>
       <code style={{
-        fontFamily: 'IBM Plex Mono', fontSize: '13px', color: 'var(--text-primary)',
+        fontFamily: 'JetBrains Mono', fontSize: '13px', color: 'var(--text-primary)',
         whiteSpace: 'pre', display: 'block', lineHeight: 1.7,
       }}>
         {children}
@@ -189,7 +189,7 @@ export function EqBlock({
     }}>
       {title && (
         <div style={{
-          fontFamily: 'IBM Plex Mono', fontSize: '10px', color: 'var(--text-muted)',
+          fontFamily: 'JetBrains Mono', fontSize: '10px', color: 'var(--text-muted)',
           textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px',
         }}>
           {title}
@@ -206,7 +206,7 @@ export function EqBlock({
             </div>
             {eq.note && (
               <span style={{
-                fontFamily: 'Plus Jakarta Sans', fontSize: '12px',
+                fontFamily: 'Hanken Grotesk', fontSize: '12px',
                 color: 'var(--text-muted)', lineHeight: 1.5,
               }}>
                 {eq.note}
@@ -232,7 +232,7 @@ export function DataTable({
     <div style={{ overflowX: 'auto', marginBottom: '14px' }}>
       {caption && (
         <p style={{
-          margin: '0 0 6px', fontFamily: 'IBM Plex Mono', fontSize: '10px',
+          margin: '0 0 6px', fontFamily: 'JetBrains Mono', fontSize: '10px',
           color: 'var(--text-muted)', letterSpacing: '0.04em',
         }}>
           {caption}
@@ -250,7 +250,7 @@ export function DataTable({
               {row.map((cell, ci) => (
                 <td key={ci}>
                   {typeof cell === 'string'
-                    ? <span style={{ fontSize: '12.5px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-secondary)' }}>{cell}</span>
+                    ? <span style={{ fontSize: '12.5px', fontFamily: 'Hanken Grotesk', color: 'var(--text-secondary)' }}>{cell}</span>
                     : cell}
                 </td>
               ))}
@@ -269,10 +269,10 @@ type FlowNodeVariant = 'default' | 'kafka' | 'spark' | 'mongo' | 'lstm' | 'api' 
 const FLOW_NODE_COLORS: Record<FlowNodeVariant, string> = {
   default: 'var(--border)',
   kafka:   '#F97316',
-  spark:   '#818CF8',
+  spark:   '#4F46E5',
   mongo:   '#22C55E',
   lstm:    '#A78BFA',
-  api:     '#6366F1',
+  api:     '#4F46E5',
   ui:      '#5C8AFF',
 };
 
@@ -294,17 +294,17 @@ export function FlowDiagram({ nodes }: {
               background: `color-mix(in srgb, ${color} 8%, var(--bg-elevated))`,
               textAlign: 'center', minWidth: '80px',
             }}>
-              <div style={{ fontFamily: 'IBM Plex Mono', fontSize: '11px', color, fontWeight: 600 }}>
+              <div style={{ fontFamily: 'JetBrains Mono', fontSize: '11px', color, fontWeight: 600 }}>
                 {node.label}
               </div>
               {node.sub && (
-                <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '10px', color: 'var(--text-muted)', marginTop: '2px' }}>
+                <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '10px', color: 'var(--text-muted)', marginTop: '2px' }}>
                   {node.sub}
                 </div>
               )}
             </div>
             {i < nodes.length - 1 && (
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '14px', color: 'var(--text-muted)', flexShrink: 0 }}>→</span>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: '14px', color: 'var(--text-muted)', flexShrink: 0 }}>→</span>
             )}
           </React.Fragment>
         );
@@ -329,7 +329,7 @@ export function Tag({ variant = 'blue', children }: { variant?: TagVariant; chil
   const color = TAG_COLORS[variant];
   return (
     <span style={{
-      fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 600,
+      fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 600,
       padding: '2px 7px', borderRadius: '4px',
       background: `color-mix(in srgb, ${color} 14%, transparent)`,
       border: `1px solid color-mix(in srgb, ${color} 28%, transparent)`,
@@ -345,7 +345,7 @@ export function Tag({ variant = 'blue', children }: { variant?: TagVariant; chil
 export function Mono({ children }: { children: React.ReactNode }) {
   return (
     <code style={{
-      fontFamily: 'IBM Plex Mono', fontSize: '11.5px',
+      fontFamily: 'JetBrains Mono', fontSize: '11.5px',
       color: 'var(--accent-light)',
       background: 'var(--bg-elevated)', padding: '1px 5px',
       borderRadius: '3px', border: '1px solid var(--border)',
@@ -365,10 +365,10 @@ export function StepList({ steps }: { steps: { title: string; body: React.ReactN
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
             <div style={{
               width: '26px', height: '26px', borderRadius: '50%',
-              background: 'var(--accent-muted)', border: '1px solid rgba(99,102,241,0.3)',
+              background: 'var(--accent-muted)', border: '1px solid rgba(79,70,229,0.3)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '11px', color: 'var(--accent-light)', fontWeight: 700 }}>
+              <span style={{ fontFamily: 'JetBrains Mono', fontSize: '11px', color: 'var(--accent-light)', fontWeight: 700 }}>
                 {i + 1}
               </span>
             </div>
@@ -377,10 +377,10 @@ export function StepList({ steps }: { steps: { title: string; body: React.ReactN
             )}
           </div>
           <div style={{ paddingTop: '2px', paddingBottom: '16px', flex: 1 }}>
-            <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '6px' }}>
+            <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '6px' }}>
               {step.title}
             </div>
-            <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.7 }}>
+            <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.7 }}>
               {step.body}
             </div>
           </div>
@@ -401,8 +401,8 @@ export function SpecRow({ items }: { items: { label: string; value: string; colo
           background: 'var(--bg-elevated)', border: '1px solid var(--border)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',
         }}>
-          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '13px', color, fontWeight: 700 }}>{value}</span>
-          <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '10px', color: 'var(--text-muted)' }}>{label}</span>
+          <span style={{ fontFamily: 'JetBrains Mono', fontSize: '13px', color, fontWeight: 700 }}>{value}</span>
+          <span style={{ fontFamily: 'Hanken Grotesk', fontSize: '10px', color: 'var(--text-muted)' }}>{label}</span>
         </div>
       ))}
     </div>
@@ -433,10 +433,10 @@ export function InfoCard({
       borderTop: `3px solid ${accent}`,
       borderRadius: '8px', padding: '16px',
     }}>
-      <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
+      <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
         {title}
       </div>
-      <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.7 }}>
+      <div style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.7 }}>
         {children}
       </div>
     </div>
@@ -454,9 +454,9 @@ export interface GlossaryTerm {
 const CATEGORY_COLORS: Record<string, string> = {
   'ML':        '#A78BFA',
   'Kafka':     '#F97316',
-  'Spark':     '#818CF8',
+  'Spark':     '#4F46E5',
   'MongoDB':   '#22C55E',
-  'API':       '#6366F1',
+  'API':       '#4F46E5',
   'Docker':    '#22D3EE',
   'Testing':   '#F59E0B',
   'Frontend':  '#EC4899',
@@ -469,11 +469,11 @@ export function GlossarySection({ terms }: { terms: GlossaryTerm[] }) {
     <div className="card" style={{ padding: '24px', marginBottom: '16px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
         <div style={{ width: '3px', height: '18px', background: '#A78BFA', borderRadius: '2px', flexShrink: 0 }} />
-        <h2 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <h2 style={{ margin: 0, fontSize: '15px', fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
           Giải thích Thuật ngữ
         </h2>
         <span style={{
-          fontFamily: 'IBM Plex Mono', fontSize: '9px', fontWeight: 700,
+          fontFamily: 'JetBrains Mono', fontSize: '9px', fontWeight: 700,
           padding: '2px 7px', borderRadius: '4px',
           background: 'color-mix(in srgb, #A78BFA 12%, transparent)',
           border: '1px solid color-mix(in srgb, #A78BFA 25%, transparent)',
@@ -501,13 +501,13 @@ export function GlossarySection({ terms }: { terms: GlossaryTerm[] }) {
                 display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '5px', flexWrap: 'wrap',
               }}>
                 <span style={{
-                  fontFamily: 'IBM Plex Mono', fontSize: '11.5px', fontWeight: 700, color: catColor,
+                  fontFamily: 'JetBrains Mono', fontSize: '11.5px', fontWeight: 700, color: catColor,
                 }}>
                   {term}
                 </span>
                 {category && (
                   <span style={{
-                    fontFamily: 'IBM Plex Mono', fontSize: '8px', fontWeight: 600,
+                    fontFamily: 'JetBrains Mono', fontSize: '8px', fontWeight: 600,
                     padding: '1px 5px', borderRadius: '3px',
                     background: `color-mix(in srgb, ${catColor} 12%, transparent)`,
                     border: `1px solid color-mix(in srgb, ${catColor} 25%, transparent)`,
@@ -519,7 +519,7 @@ export function GlossarySection({ terms }: { terms: GlossaryTerm[] }) {
               </div>
               <p style={{
                 margin: 0, fontSize: '12px', lineHeight: 1.65,
-                color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans',
+                color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk',
               }}>
                 {def}
               </p>

@@ -190,7 +190,7 @@ make e2e-layer-3    # ML Pipeline → MongoDB only`}</CodeBlock>
           borderTop: '3px solid #5C8AFF',
           borderRadius: '8px', padding: '16px',
         }}>
-          <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '12px' }}>
+          <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '12px' }}>
             Môi trường thực nghiệm
           </div>
           <DataTable

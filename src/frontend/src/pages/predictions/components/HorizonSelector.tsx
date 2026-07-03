@@ -14,7 +14,7 @@ export default function HorizonSelector({ activeHorizon, models, onSelect }: Hor
     <div style={{ marginBottom: '18px' }}>
       <div style={{
         display: 'flex', alignItems: 'center', gap: '6px',
-        fontSize: '10px', fontFamily: 'Plus Jakarta Sans', fontWeight: 600,
+        fontSize: '10px', fontFamily: 'Hanken Grotesk', fontWeight: 600,
         color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase',
         marginBottom: '10px',
       }}>
@@ -33,14 +33,14 @@ export default function HorizonSelector({ activeHorizon, models, onSelect }: Hor
               onClick={() => !isActive && onSelect(h.value as HorizonValue)}
               style={{
                 padding: '16px', borderRadius: '11px', position: 'relative',
-                border: isActive ? '1px solid rgba(99,102,241,0.35)' : '1px solid var(--border)',
+                border: isActive ? '1px solid rgba(79,70,229,0.35)' : '1px solid var(--border)',
                 background: isActive ? 'var(--accent-muted)' : 'var(--bg-card)',
                 cursor: isActive ? 'default' : hasModel ? 'pointer' : 'not-allowed',
                 transition: 'all 0.15s ease',
               }}
               onMouseEnter={e => {
                 if (!isActive && hasModel) {
-                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(99,102,241,0.25)';
+                  (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(79,70,229,0.25)';
                   (e.currentTarget as HTMLDivElement).style.background = 'var(--bg-elevated)';
                 }
               }}
@@ -55,9 +55,9 @@ export default function HorizonSelector({ activeHorizon, models, onSelect }: Hor
                 <div style={{
                   position: 'absolute', top: '10px', right: '10px',
                   padding: '2px 8px', borderRadius: '5px', fontSize: '9px',
-                  fontFamily: 'IBM Plex Mono', fontWeight: 500,
+                  fontFamily: 'JetBrains Mono', fontWeight: 500,
                   background: 'var(--accent-subtle)', color: 'var(--accent-light)',
-                  border: '1px solid rgba(99,102,241,0.25)',
+                  border: '1px solid rgba(79,70,229,0.25)',
                 }}>
                   viewing
                 </div>
@@ -71,12 +71,12 @@ export default function HorizonSelector({ activeHorizon, models, onSelect }: Hor
               }}>
                 {h.label}
               </div>
-              <div style={{ fontSize: '11px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-secondary)', marginBottom: '10px' }}>
+              <div style={{ fontSize: '11px', fontFamily: 'Hanken Grotesk', color: 'var(--text-secondary)', marginBottom: '10px' }}>
                 <span style={{ fontWeight: 600, color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)' }}>{h.days}</span>
                 <span> · {h.detail}</span>
               </div>
 
-              <div style={{ fontSize: '10px', fontFamily: 'IBM Plex Mono' }}>
+              <div style={{ fontSize: '10px', fontFamily: 'JetBrains Mono' }}>
                 {hasModel ? (
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     {entry?.metrics?.rmse != null && (
@@ -102,7 +102,7 @@ export default function HorizonSelector({ activeHorizon, models, onSelect }: Hor
                   marginTop: '10px', padding: '6px 0', textAlign: 'center',
                   borderRadius: '6px', border: '1px solid var(--border)',
                   background: hasModel ? 'var(--bg-elevated)' : 'transparent',
-                  fontSize: '10px', fontFamily: 'IBM Plex Mono',
+                  fontSize: '10px', fontFamily: 'JetBrains Mono',
                   color: hasModel ? 'var(--text-secondary)' : 'var(--text-muted)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px',
                 }}>

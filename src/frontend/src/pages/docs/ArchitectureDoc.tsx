@@ -20,11 +20,11 @@ const fadeUp = {
 const PALETTE = {
   source: '#5C8AFF',
   ingest: '#F97316',
-  speed:  '#818CF8',
+  speed:  '#4F46E5',
   batch:  '#22D3EE',
   mongo:  '#22C55E',
   ml:     '#A78BFA',
-  api:    '#6366F1',
+  api:    '#4F46E5',
   fe:     '#EC4899',
 };
 
@@ -49,7 +49,7 @@ function Box({
           dominantBaseline="middle"
           style={{
             fill: i === 0 ? 'var(--text-primary)' : 'var(--text-muted)',
-            fontFamily: i === 0 ? 'Plus Jakarta Sans' : 'IBM Plex Mono',
+            fontFamily: i === 0 ? 'Hanken Grotesk' : 'JetBrains Mono',
             fontSize: i === 0 ? 12.5 : 9.5,
             fontWeight: i === 0 ? 700 : 500,
           }}
@@ -83,7 +83,7 @@ function LaneLabel({ x, y, text }: { x: number; y: number; text: string }) {
     <text
       x={x} y={y}
       style={{
-        fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono',
+        fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono',
         fontSize: 10, fontWeight: 600, letterSpacing: '0.08em',
       }}
     >
@@ -152,13 +152,13 @@ function LambdaFigure() {
           <Arrow x1={910} y1={255} x2={980} y2={251} dashed />
 
           {/* nhãn nhỏ trên cạnh */}
-          <text x={764} y={335} style={{ fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono', fontSize: 8.5 }}>đọc seed</text>
-          <text x={844} y={335} style={{ fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono', fontSize: 8.5 }}>predictions</text>
+          <text x={764} y={335} style={{ fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono', fontSize: 8.5 }}>đọc seed</text>
+          <text x={844} y={335} style={{ fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono', fontSize: 8.5 }}>predictions</text>
         </svg>
       </div>
       <figcaption style={{
         marginTop: '8px', fontSize: '11.5px', color: 'var(--text-muted)',
-        fontFamily: 'Plus Jakarta Sans', fontStyle: 'italic', lineHeight: 1.6,
+        fontFamily: 'Hanken Grotesk', fontStyle: 'italic', lineHeight: 1.6,
       }}>
         Hình 1. Kiến trúc Lambda của hệ thống. Hai nhánh xử lý song song — Speed Layer (Kafka → Spark Streaming) và
         Batch Layer (CSV → Spark Batch) — cùng ghi về một Serving Store (MongoDB). Inference Scheduler đọc lịch sử
@@ -299,10 +299,10 @@ export default function ArchitectureDoc() {
               background: 'var(--bg-elevated)', borderRadius: '8px',
               padding: '16px', border: '1px solid var(--border)',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
                 {item.title}
               </div>
-              <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Plus Jakarta Sans' }}>
+              <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Hanken Grotesk' }}>
                 {item.body}
               </p>
             </div>

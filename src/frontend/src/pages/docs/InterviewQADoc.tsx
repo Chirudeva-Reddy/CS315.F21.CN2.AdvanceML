@@ -328,7 +328,7 @@ function QAItem({ qa, defaultOpen = false }: { qa: QA; defaultOpen?: boolean }) 
           transition: 'background 0.15s',
         }}
       >
-        <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '13.5px', fontWeight: 600, color: 'var(--text-primary)', textAlign: 'left', lineHeight: 1.5 }}>
+        <span style={{ fontFamily: 'Hanken Grotesk', fontSize: '13.5px', fontWeight: 600, color: 'var(--text-primary)', textAlign: 'left', lineHeight: 1.5 }}>
           {qa.q}
         </span>
         <motion.div
@@ -360,14 +360,14 @@ function QAItem({ qa, defaultOpen = false }: { qa: QA; defaultOpen?: boolean }) 
                   <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
                     <div style={{
                       width: '18px', height: '18px', borderRadius: '50%', flexShrink: 0,
-                      background: 'var(--accent-muted)', border: '1px solid rgba(99,102,241,0.25)',
+                      background: 'var(--accent-muted)', border: '1px solid rgba(79,70,229,0.25)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '1px',
                     }}>
-                      <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '9px', color: 'var(--accent-light)', fontWeight: 700 }}>
+                      <span style={{ fontFamily: 'JetBrains Mono', fontSize: '9px', color: 'var(--accent-light)', fontWeight: 700 }}>
                         {i + 1}
                       </span>
                     </div>
-                    <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.75 }}>
+                    <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.75 }}>
                       {bold && <strong style={{ color: 'var(--text-primary)' }}>{bold}: </strong>}
                       {rest}
                     </p>
@@ -410,7 +410,7 @@ export default function InterviewQADoc() {
 
         {/* Data flow diagram */}
         <div style={{ marginBottom: '20px' }}>
-          <p style={{ margin: '0 0 10px', fontSize: '12px', fontFamily: 'IBM Plex Mono', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+          <p style={{ margin: '0 0 10px', fontSize: '12px', fontFamily: 'JetBrains Mono', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
             Luồng dữ liệu đầy đủ
           </p>
           <FlowDiagram nodes={[
@@ -431,14 +431,14 @@ export default function InterviewQADoc() {
         </div>
 
         {/* Cadence table */}
-        <p style={{ margin: '0 0 10px', fontSize: '12px', fontFamily: 'IBM Plex Mono', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+        <p style={{ margin: '0 0 10px', fontSize: '12px', fontFamily: 'JetBrains Mono', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
           4 Cadence độc lập — không phải cùng một việc
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '8px', marginBottom: '20px' }}>
           {[
             { interval: '600s (10 min)', role: 'Producer poll CoinGecko', why: 'Giới hạn demo tier 10k calls/tháng', color: '#F97316' },
             { interval: '30 min (×3 polls)', role: 'OHLC fetch riêng', why: 'OHLC tốn quota hơn — lấy thưa hơn', color: '#F59E0B' },
-            { interval: '300s (5 min)', role: 'Scheduler loop nội bộ', why: 'Phục vụ on-demand + refresh live_prices', color: '#818CF8' },
+            { interval: '300s (5 min)', role: 'Scheduler loop nội bộ', why: 'Phục vụ on-demand + refresh live_prices', color: '#4F46E5' },
             { interval: '1 lần / ngày', role: 'LSTM Inference', why: 'Model train trên daily data — H7/H15/H60', color: '#A78BFA' },
           ].map(c => (
             <div key={c.role} style={{
@@ -448,13 +448,13 @@ export default function InterviewQADoc() {
               borderTop: `3px solid ${c.color}`,
               borderRadius: '8px',
             }}>
-              <div style={{ fontFamily: 'IBM Plex Mono', fontSize: '13px', fontWeight: 700, color: c.color, marginBottom: '4px' }}>
+              <div style={{ fontFamily: 'JetBrains Mono', fontSize: '13px', fontWeight: 700, color: c.color, marginBottom: '4px' }}>
                 {c.interval}
               </div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12.5px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '12.5px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
                 {c.role}
               </div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: 1.55 }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '11.5px', color: 'var(--text-muted)', lineHeight: 1.55 }}>
                 {c.why}
               </div>
             </div>
@@ -462,16 +462,16 @@ export default function InterviewQADoc() {
         </div>
 
         {/* Key guarantees */}
-        <p style={{ margin: '0 0 10px', fontSize: '12px', fontFamily: 'IBM Plex Mono', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+        <p style={{ margin: '0 0 10px', fontSize: '12px', fontFamily: 'JetBrains Mono', color: 'var(--text-muted)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
           Guarantees cốt lõi — phải thuộc trước phản biện
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
           {[
             { label: 'Kafka acks=all + ISR', detail: 'Mọi ISR xác nhận → message không mất dù leader crash. max_in_flight=1 → ordering đảm bảo khi retry.', color: '#F97316' },
-            { label: 'foreachBatch idempotent', detail: 'delete_many(batch_id) → insert_many. Spark retry cùng batch_id → kết quả y hệt. Không bao giờ duplicate.', color: '#818CF8' },
+            { label: 'foreachBatch idempotent', detail: 'delete_many(batch_id) → insert_many. Spark retry cùng batch_id → kết quả y hệt. Không bao giờ duplicate.', color: '#4F46E5' },
             { label: 'MongoDB upsert key', detail: '(coin, prediction_date, horizon, model_id) — tối đa 1 document/forecast point dù inference chạy bao nhiêu lần.', color: '#22C55E' },
             { label: 'Walk-Forward — không có data leakage', detail: 'Fold k luôn train [t0, tk), validate [tk, tk+Δ). Không shuffle, không overlap → reflects production exactly.', color: '#A78BFA' },
-            { label: 'StandardScaler fit chỉ trên train', detail: 'Val và test dùng scaler của train partition → không có look-ahead bias từ future statistics.', color: '#6366F1' },
+            { label: 'StandardScaler fit chỉ trên train', detail: 'Val và test dùng scaler của train partition → không có look-ahead bias từ future statistics.', color: '#4F46E5' },
           ].map(g => (
             <div key={g.label} style={{
               display: 'flex', gap: '12px', alignItems: 'flex-start',
@@ -479,10 +479,10 @@ export default function InterviewQADoc() {
               background: 'var(--bg-elevated)', border: '1px solid var(--border)',
               borderLeft: `3px solid ${g.color}`, borderRadius: '6px',
             }}>
-              <div style={{ minWidth: '200px', fontFamily: 'IBM Plex Mono', fontSize: '11px', fontWeight: 700, color: g.color, lineHeight: 1.5 }}>
+              <div style={{ minWidth: '200px', fontFamily: 'JetBrains Mono', fontSize: '11px', fontWeight: 700, color: g.color, lineHeight: 1.5 }}>
                 {g.label}
               </div>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.65, flex: 1 }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.65, flex: 1 }}>
                 {g.detail}
               </div>
             </div>
@@ -505,7 +505,7 @@ export default function InterviewQADoc() {
           >
             {cat}
             {cat !== 'Tất cả' && (
-              <span style={{ marginLeft: '5px', fontFamily: 'IBM Plex Mono', fontSize: '9px', color: 'var(--text-muted)' }}>
+              <span style={{ marginLeft: '5px', fontFamily: 'JetBrains Mono', fontSize: '9px', color: 'var(--text-muted)' }}>
                 {QA_DATA.filter(q => q.category === cat).length}
               </span>
             )}

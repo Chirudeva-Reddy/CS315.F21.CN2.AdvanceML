@@ -37,7 +37,7 @@ export default function TestingDoc() {
               ].map(([file, desc]) => (
                 <div key={file} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                   <Mono>{file}</Mono>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', marginTop: '1px' }}>{desc}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', marginTop: '1px' }}>{desc}</span>
                 </div>
               ))}
             </div>
@@ -52,7 +52,7 @@ export default function TestingDoc() {
               ].map(([file, desc]) => (
                 <div key={file} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                   <Mono>{file}</Mono>
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', marginTop: '1px' }}>{desc}</span>
+                  <span style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', marginTop: '1px' }}>{desc}</span>
                 </div>
               ))}
             </div>

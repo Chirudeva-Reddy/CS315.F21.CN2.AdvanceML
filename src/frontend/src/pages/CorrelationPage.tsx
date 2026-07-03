@@ -28,7 +28,7 @@ export default function CorrelationPage() {
 
   if (error || !data) {
     return (
-      <div style={{ padding: '40px', textAlign: 'center', color: 'var(--down)', fontFamily: 'Plus Jakarta Sans', fontSize: '14px' }}>
+      <div style={{ padding: '40px', textAlign: 'center', color: 'var(--down)', fontFamily: 'Hanken Grotesk', fontSize: '14px' }}>
         Failed to load correlation data
       </div>
     );

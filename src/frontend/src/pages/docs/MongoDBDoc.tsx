@@ -100,7 +100,7 @@ export default function MongoDBDoc() {
       <SectionCard>
         <SectionTitle>Document Schema Examples</SectionTitle>
 
-        <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', marginTop: '4px' }}>
+        <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', marginTop: '4px' }}>
           realtime_prices — Speed Layer Output (18 fields)
         </div>
         <CodeBlock lang="json">{`{
@@ -127,7 +127,7 @@ export default function MongoDBDoc() {
   "batch_id": 1234
 }`}</CodeBlock>
 
-        <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', marginTop: '16px' }}>
+        <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', marginTop: '16px' }}>
           predictions — ML Pipeline Output (7 fields)
         </div>
         <CodeBlock lang="json">{`{
@@ -142,7 +142,7 @@ export default function MongoDBDoc() {
   "horizon_step": 7                                      // 1-7 (step within the horizon)
 }`}</CodeBlock>
 
-        <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', marginTop: '16px' }}>
+        <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px', marginTop: '16px' }}>
           daily_stats — Batch Layer Output (8 fields)
         </div>
         <CodeBlock lang="json">{`{

@@ -1,17 +1,17 @@
 // Legacy stub — ApexCharts removed in v2.
 export const C = {
-  bg:       '#0A0A0F',
-  card:     '#111118',
-  border:   'rgba(255,255,255,0.07)',
-  borderDim:'rgba(255,255,255,0.04)',
-  cyan:     '#6366F1',
-  gold:     '#F59E0B',
-  green:    '#22C55E',
-  red:      '#EF4444',
-  violet:   '#A78BFA',
-  textPri:  '#F1F1F5',
-  textSec:  '#71717A',
-  textMut:  '#3F3F46',
+  bg:       '#F1F1EC',
+  card:     '#FFFFFF',
+  border:   'rgba(23,25,30,0.09)',
+  borderDim:'rgba(23,25,30,0.05)',
+  cyan:     '#4F46E5',
+  gold:     '#B45309',
+  green:    '#15803D',
+  red:      '#DC2626',
+  violet:   '#7C3AED',
+  textPri:  '#191B1F',
+  textSec:  '#565962',
+  textMut:  '#8A8D96',
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

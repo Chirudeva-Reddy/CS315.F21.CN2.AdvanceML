@@ -38,10 +38,10 @@ export default function ForecastTable({
         padding: '13px 20px', borderBottom: '1px solid var(--border)',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
           {periodLabel} Daily Forecast
         </div>
-        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', display: 'flex', alignItems: 'center', gap: '6px' }}>
           Model:{' '}
           <span className="font-mono" style={{ color: viewingArchived ? 'var(--warn)' : 'var(--purple)' }}>
             {modelLabel}
@@ -78,7 +78,7 @@ export default function ForecastTable({
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                   width: '22px', height: '22px', borderRadius: '5px',
                   background: 'var(--bg-elevated)', border: '1px solid var(--border)',
-                  fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'IBM Plex Mono',
+                  fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'JetBrains Mono',
                 }}>{pageOffset + i + 1}</span>
               </td>
               <td>

@@ -17,8 +17,8 @@ interface FeatureBannerProps {
 export default function FeatureBanner({ onSignIn }: FeatureBannerProps) {
   return (
     <div style={{
-      background: 'linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(167,139,250,0.06) 100%)',
-      borderBottom: '1px solid rgba(99,102,241,0.15)',
+      background: 'linear-gradient(135deg, rgba(79,70,229,0.08) 0%, rgba(124,58,237,0.06) 100%)',
+      borderBottom: '1px solid rgba(79,70,229,0.15)',
       padding: '14px 36px',
       display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap',
     }}>
@@ -30,7 +30,7 @@ export default function FeatureBanner({ onSignIn }: FeatureBannerProps) {
           animation: 'none',
         }} />
         <span style={{
-          fontFamily: 'Plus Jakarta Sans', fontSize: '12px', fontWeight: 600,
+          fontFamily: 'Hanken Grotesk', fontSize: '12px', fontWeight: 600,
           color: 'var(--text-secondary)',
         }}>
           Đăng nhập để truy cập đầy đủ tính năng:
@@ -46,7 +46,7 @@ export default function FeatureBanner({ onSignIn }: FeatureBannerProps) {
               display: 'inline-flex', alignItems: 'center', gap: '4px',
               padding: '3px 10px', borderRadius: '20px',
               background: 'var(--bg-elevated)', border: '1px solid var(--border)',
-              fontFamily: 'Plus Jakarta Sans', fontSize: '11px', fontWeight: 500,
+              fontFamily: 'Hanken Grotesk', fontSize: '11px', fontWeight: 500,
               color: 'var(--text-secondary)',
             }}
           >
@@ -64,7 +64,7 @@ export default function FeatureBanner({ onSignIn }: FeatureBannerProps) {
           padding: '8px 18px', borderRadius: '8px',
           background: 'var(--accent)', border: 'none',
           color: '#fff', cursor: 'pointer',
-          fontFamily: 'Plus Jakarta Sans', fontSize: '12px', fontWeight: 600,
+          fontFamily: 'Hanken Grotesk', fontSize: '12px', fontWeight: 600,
           transition: 'background 0.15s, transform 0.1s',
           flexShrink: 0,
         }}

@@ -12,7 +12,7 @@ export default function SparkStreamingDoc() {
         title="Spark Structured Streaming — Speed Layer"
         subtitle="src/spark/streaming_job.py — xử lý realtime indicators, 2 parallel queries"
         badge="03"
-        badgeColor="#818CF8"
+        badgeColor="#4F46E5"
       />
 
       <SpecRow items={[
@@ -56,7 +56,7 @@ export default function SparkStreamingDoc() {
               borderTop: `3px solid ${q.accent}`,
               borderRadius: '8px', padding: '16px',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '10px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '10px' }}>
                 {q.title}
               </div>
               {[
@@ -66,10 +66,10 @@ export default function SparkStreamingDoc() {
                 { k: 'Checkpoint', v: q.checkpoint },
               ].map(row => (
                 <div key={row.k} style={{ display: 'flex', gap: '8px', marginBottom: '6px' }}>
-                  <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '10px', color: 'var(--text-muted)', flexShrink: 0, paddingTop: '2px', minWidth: '80px' }}>
+                  <span style={{ fontFamily: 'JetBrains Mono', fontSize: '10px', color: 'var(--text-muted)', flexShrink: 0, paddingTop: '2px', minWidth: '80px' }}>
                     {row.k}:
                   </span>
-                  <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.6 }}>
+                  <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.6 }}>
                     {row.v}
                   </span>
                 </div>
@@ -101,7 +101,7 @@ export default function SparkStreamingDoc() {
             alt="Spark Streaming sequence diagram"
             style={{ maxWidth: '100%', borderRadius: '8px', border: '1px solid var(--border)', background: '#111' }}
           />
-          <figcaption style={{ marginTop: '7px', fontSize: '11.5px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', fontStyle: 'italic' }}>
+          <figcaption style={{ marginTop: '7px', fontSize: '11.5px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', fontStyle: 'italic' }}>
             Sequence diagram: Producer → Kafka → Spark Streaming → MongoDB (Query A + Query B + alerts)
           </figcaption>
         </figure>
@@ -277,14 +277,14 @@ if alerts.count() > 0:
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '14px' }}>
           <div style={{ background: 'color-mix(in srgb, #22C55E 6%, var(--bg-card))', border: '1px solid color-mix(in srgb, #22C55E 20%, var(--border))', borderTop: '3px solid #22C55E', borderRadius: '8px', padding: '16px' }}>
-            <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px' }}>Idempotency guarantee</div>
-            <p style={{ margin: 0, fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Plus Jakarta Sans' }}>
+            <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px' }}>Idempotency guarantee</div>
+            <p style={{ margin: 0, fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Hanken Grotesk' }}>
               Chạy lại cùng <Mono>batch_id</Mono> cho cùng kết quả. <Mono>delete_many(batch_id)</Mono> trước <Mono>insert_many</Mono> loại bỏ duplicates từ Spark retry một cách an toàn.
             </p>
           </div>
           <div style={{ background: 'color-mix(in srgb, #F87171 6%, var(--bg-card))', border: '1px solid color-mix(in srgb, #F87171 20%, var(--border))', borderTop: '3px solid #F87171', borderRadius: '8px', padding: '16px' }}>
-            <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px' }}>Tại sao không dùng Connector?</div>
-            <p style={{ margin: 0, fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Plus Jakarta Sans' }}>
+            <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13px', color: 'var(--text-primary)', marginBottom: '8px' }}>Tại sao không dùng Connector?</div>
+            <p style={{ margin: 0, fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Hanken Grotesk' }}>
               <Mono>com.mongodb.spark</Mono> không ổn định trong streaming mode — checkpoint state bị corrupt sau restart. <Mono>foreachBatch</Mono> + PyMongo cho full control và dễ debug hơn.
             </p>
           </div>

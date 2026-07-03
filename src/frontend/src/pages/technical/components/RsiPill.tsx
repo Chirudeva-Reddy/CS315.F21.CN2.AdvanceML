@@ -10,7 +10,7 @@ export default function RsiPill({ rsi }: RsiPillProps) {
       padding: '5px 12px', borderRadius: '7px', marginBottom: '14px',
       background: 'var(--bg-elevated)', border: '1px solid var(--border)',
     }}>
-      <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans' }}>
+      <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk' }}>
         Current RSI:
       </span>
       <span className="font-mono" style={{

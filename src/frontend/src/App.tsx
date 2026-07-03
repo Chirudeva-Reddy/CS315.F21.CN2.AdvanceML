@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { GitBranch } from 'lucide-react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AuthProvider, useAuth } from './auth/AuthContext';
@@ -25,7 +26,7 @@ import DeploymentDoc from './pages/docs/DeploymentDoc';
 import InterviewQADoc from './pages/docs/InterviewQADoc';
 import { fetchStats } from './api/client';
 import { type Coin } from './lib/coin';
-import { PUBLIC_PAGES, pageVariants, type Page } from './components/layout/navigation';
+import { PUBLIC_PAGES, pageVariants, PAGE_FILE, TAB_PAGES, type Page } from './components/layout/navigation';
 import Sidebar from './components/layout/Sidebar';
 import PublicShell from './components/layout/PublicShell';
 import './index.css';
@@ -79,7 +80,7 @@ function AppShell() {
         <div className="font-display" style={{ fontSize: '22px', color: 'var(--accent)', letterSpacing: '0.02em' }}>
           Bitconiacs
         </div>
-        <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '12px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk' }}>
           Loading...
         </div>
       </div>
@@ -128,10 +129,28 @@ function AppShell() {
       <main style={{
         flex: 1,
         marginLeft: '232px',
-        overflow: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
         minHeight: '100vh',
-        padding: '32px 36px',
       }}>
+        {/* Editor tab-bar — pages as open source files */}
+        <div className="tab-bar" style={{ position: 'sticky', top: 0, zIndex: 15 }}>
+          {TAB_PAGES.map(p => {
+            const active = page === p || (p === 'docs' && page.startsWith('doc-'));
+            return (
+              <button
+                key={p}
+                className={`tab ${active ? 'active' : ''}`}
+                onClick={() => setPage(p)}
+              >
+                <span className="dot" />
+                {PAGE_FILE[p]}
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ flex: 1, overflow: 'auto', padding: '28px 36px 48px' }}>
         <AnimatePresence mode="wait">
           <motion.div
             key={page}
@@ -164,7 +183,21 @@ function AppShell() {
             {page === 'doc-qa'           && <InterviewQADoc />}
           </motion.div>
         </AnimatePresence>
+        </div>
       </main>
+
+      {/* ── Status bar — VS Code style ──────────────────────────────────────── */}
+      <div className="status-bar" style={{ left: '232px' }}>
+        <span className="status-item"><GitBranch size={12} /> main</span>
+        <span className="status-item ghost">{PAGE_FILE[page]}</span>
+        <span style={{ flex: 1 }} />
+        <span className="status-item ghost">{coin.toUpperCase()}</span>
+        <span className="status-item ghost">BTC {fmtP(btcPrice, 2)}</span>
+        <span className="status-item ghost">DOGE {fmtP(dogePrice, 6)}</span>
+        <span className="status-item"><span className="pulse" /> live</span>
+        <span className="status-item">UTF-8</span>
+        <span className="status-item">LSTM v3</span>
+      </div>
     </div>
   );
 }

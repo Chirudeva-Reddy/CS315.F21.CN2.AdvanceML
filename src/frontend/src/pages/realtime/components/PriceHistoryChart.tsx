@@ -36,7 +36,7 @@ export default function PriceHistoryChart({
   return (
     <div className="card" style={{ padding: '20px', marginBottom: '14px' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+        <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
           Price History
         </div>
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
@@ -83,16 +83,16 @@ export default function PriceHistoryChart({
                 <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(23,25,30,0.04)" vertical={false} />
             <XAxis
               dataKey="date" tickLine={false} axisLine={false}
-              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
               tickFormatter={v => v.slice(5)}
               interval={Math.floor(data.length / 7)}
             />
             <YAxis
               tickLine={false} axisLine={false}
-              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
               domain={['auto', 'auto']}
               tickFormatter={v => fmtAxisPrice(v, coin)}
               width={coin === 'bitcoin' ? 52 : 64}

@@ -82,7 +82,7 @@ export default function TechnicalPage({ coin }: Props) {
 
   if (error) {
     return (
-      <div style={{ padding: '40px', textAlign: 'center', color: 'var(--down)', fontFamily: 'Plus Jakarta Sans' }}>
+      <div style={{ padding: '40px', textAlign: 'center', color: 'var(--down)', fontFamily: 'Hanken Grotesk' }}>
         <BarChart2 size={32} style={{ marginBottom: '12px', opacity: 0.4 }} />
         <div>Error loading technical data</div>
       </div>

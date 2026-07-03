@@ -27,13 +27,13 @@ const CustomTooltip = ({ active, payload, label, decimals }: {
   if (!active || !payload?.length) return null;
   return (
     <div className="chart-tooltip">
-      <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'IBM Plex Mono' }}>
+      <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginBottom: '6px', fontFamily: 'JetBrains Mono' }}>
         {label}
       </div>
       {payload.map((p, i) => (
         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2px' }}>
           <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: p.color }} />
-          <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', flex: 1 }}>{p.name}</span>
+          <span style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', flex: 1 }}>{p.name}</span>
           <span className="font-mono" style={{ fontSize: '12px', color: 'var(--text-primary)' }}>
             {fmt(p.value, decimals)}
           </span>
@@ -52,10 +52,10 @@ export default function HistoryChart({ coin, decimals, symbol, data }: HistoryCh
         marginBottom: '16px',
       }}>
         <div>
-          <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Plus Jakarta Sans' }}>
+          <div style={{ fontSize: '14px', fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'Hanken Grotesk' }}>
             90-Day Price History
           </div>
-          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '2px', fontFamily: 'Plus Jakarta Sans' }}>
+          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', marginTop: '2px', fontFamily: 'Hanken Grotesk' }}>
             {symbol} close price with 20 / 50-day moving averages
           </div>
         </div>
@@ -78,17 +78,17 @@ export default function HistoryChart({ coin, decimals, symbol, data }: HistoryCh
                 <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="rgba(23,25,30,0.04)" vertical={false} />
             <XAxis
               dataKey="date"
-              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
               tickLine={false}
               axisLine={false}
               tickFormatter={v => v.slice(5)}
               interval={Math.floor(data.length / 6)}
             />
             <YAxis
-              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'IBM Plex Mono' }}
+              tick={{ fontSize: 10, fill: 'var(--text-muted)', fontFamily: 'JetBrains Mono' }}
               tickLine={false}
               axisLine={false}
               domain={['auto', 'auto']}

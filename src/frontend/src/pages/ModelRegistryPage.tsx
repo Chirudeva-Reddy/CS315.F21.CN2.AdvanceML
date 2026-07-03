@@ -77,8 +77,8 @@ export default function ModelRegistryPage() {
           <div style={{
             display: 'flex', alignItems: 'center', gap: '7px',
             padding: '7px 13px', borderRadius: '8px',
-            background: 'var(--accent-muted)', border: '1px solid rgba(99,102,241,0.2)',
-            fontSize: '12px', fontFamily: 'Plus Jakarta Sans', color: 'var(--accent-light)',
+            background: 'var(--accent-muted)', border: '1px solid rgba(79,70,229,0.2)',
+            fontSize: '12px', fontFamily: 'Hanken Grotesk', color: 'var(--accent-light)',
           }}>
             <Loader size={12} className="spin" />
             {activeJobs} job{activeJobs > 1 ? 's' : ''} running

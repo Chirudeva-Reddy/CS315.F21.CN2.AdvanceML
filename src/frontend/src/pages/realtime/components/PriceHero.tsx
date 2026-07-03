@@ -27,7 +27,7 @@ export default function PriceHero({
     >
       <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '24px', alignItems: 'center' }}>
         <div>
-          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '8px' }}>
+          <div style={{ fontSize: '11px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '8px' }}>
             Current Price · {symbol}
           </div>
           {loading ? (
@@ -40,7 +40,7 @@ export default function PriceHero({
               {priceChange != null && (
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: '5px',
-                  marginTop: '10px', fontSize: '13px', fontWeight: 600, fontFamily: 'Plus Jakarta Sans',
+                  marginTop: '10px', fontSize: '13px', fontWeight: 600, fontFamily: 'Hanken Grotesk',
                   color: priceChange >= 0 ? 'var(--up)' : 'var(--down)',
                 }}>
                   {priceChange >= 0 ? <TrendingUp size={14} /> : <TrendingDown size={14} />}
@@ -52,15 +52,15 @@ export default function PriceHero({
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '3px' }}>24h High</div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '3px' }}>24h High</div>
             <div className="font-mono" style={{ fontSize: '15px', color: 'var(--up)' }}>{fmt(realtime?.daily_high, decimals)}</div>
           </div>
           <div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '3px' }}>24h Low</div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '3px' }}>24h Low</div>
             <div className="font-mono" style={{ fontSize: '15px', color: 'var(--down)' }}>{fmt(realtime?.daily_low, decimals)}</div>
           </div>
           <div>
-            <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '3px' }}>Volume</div>
+            <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '3px' }}>Volume</div>
             <div className="font-mono" style={{ fontSize: '15px', color: 'var(--text-primary)' }}>
               {fmtVolume(realtime?.avg_volume)}
             </div>

@@ -20,19 +20,24 @@ import {
   type UTCTimestamp,
 } from 'lightweight-charts';
 
-const BG_CARD = '#0A0F1E';   // matches --bg-card CSS variable
+const BG_CARD = '#FFFFFF';   // matches --bg-card CSS variable (Editor Light)
 
 // lightweight-charts is a canvas renderer — it cannot resolve CSS custom properties.
 // Map design-system variable names to their literal hex equivalents.
 const CSS_VAR_MAP: Record<string, string> = {
-  'var(--cyan)':    '#00E5FF',
-  'var(--green)':   '#00F0A0',
-  'var(--red)':     '#FF3864',
-  'var(--gold)':    '#FFB020',
-  'var(--violet)':  '#8B5CF6',
-  'var(--bg-card)': '#0A0F1E',
-  'var(--border)':  '#1C2840',
+  'var(--cyan)':    '#4F46E5',
+  'var(--green)':   '#15803D',
+  'var(--red)':     '#DC2626',
+  'var(--gold)':    '#B45309',
+  'var(--violet)':  '#7C3AED',
+  'var(--bg-card)': '#FFFFFF',
+  'var(--border)':  '#E4E4DC',
 };
+
+// Editor-light chart chrome
+const GRID_LINE  = '#EDEDE6';
+const AXIS_TEXT  = '#8A8D96';
+const AXIS_LINE  = '#E4E4DC';
 
 function rc(color: string): string {
   return CSS_VAR_MAP[color] ?? color;
@@ -45,19 +50,19 @@ function makeChartOptions(width: number, height: number) {
     height,
     layout: {
       background: { type: ColorType.Solid, color: BG_CARD },
-      textColor: '#556070',
+      textColor: AXIS_TEXT,
       fontSize: 11,
-      fontFamily: "'Space Mono', monospace",
+      fontFamily: "'JetBrains Mono', monospace",
     },
     grid: {
-      vertLines: { color: '#131B2A', style: LineStyle.Solid },
-      horzLines: { color: '#131B2A', style: LineStyle.Solid },
+      vertLines: { color: GRID_LINE, style: LineStyle.Solid },
+      horzLines: { color: GRID_LINE, style: LineStyle.Solid },
     },
     crosshair: { mode: CrosshairMode.Normal },
-    rightPriceScale: { borderColor: '#1C2840', textColor: '#556070' },
+    rightPriceScale: { borderColor: AXIS_LINE, textColor: AXIS_TEXT },
     timeScale: {
-      borderColor: '#1C2840',
-      textColor: '#556070',
+      borderColor: AXIS_LINE,
+      textColor: AXIS_TEXT,
       timeVisible: true,
       secondsVisible: false,
     },
@@ -90,8 +95,8 @@ export function AreaChart({
   data,
   forecastData,
   height = 360,
-  color = '#00E5FF',
-  forecastColor = '#FFB020',
+  color = '#4F46E5',
+  forecastColor = '#B45309',
   onCrosshairMove,
 }: AreaChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -200,21 +205,21 @@ export function CandlestickChart({ data, sma20, sma50, height = 400 }: Candlesti
     chartRef.current = chart;
 
     candleRef.current = chart.addCandlestickSeries({
-      upColor:        '#00F0A0',
-      downColor:      '#FF3864',
-      borderUpColor:  '#00F0A0',
-      borderDownColor:'#FF3864',
-      wickUpColor:    '#00F0A0',
-      wickDownColor:  '#FF3864',
+      upColor:        '#15803D',
+      downColor:      '#DC2626',
+      borderUpColor:  '#15803D',
+      borderDownColor:'#DC2626',
+      wickUpColor:    '#15803D',
+      wickDownColor:  '#DC2626',
     });
 
     sma20Ref.current = chart.addLineSeries({
-      color: '#FFB020', lineWidth: 1,
+      color: '#B45309', lineWidth: 1,
       crosshairMarkerVisible: false, lastValueVisible: true, priceLineVisible: false,
     });
 
     sma50Ref.current = chart.addLineSeries({
-      color: '#8B5CF6', lineWidth: 1,
+      color: '#7C3AED', lineWidth: 1,
       crosshairMarkerVisible: false, lastValueVisible: true, priceLineVisible: false,
     });
 
@@ -253,7 +258,7 @@ export function Sparkline({ data, height = 60, color, positive = true }: Sparkli
   const chartRef     = useRef<IChartApi | null>(null);
   const seriesRef    = useRef<ISeriesApi<'Area'> | null>(null);
 
-  const lineColor = rc(color ?? (positive ? '#00F0A0' : '#FF3864'));
+  const lineColor = rc(color ?? (positive ? '#15803D' : '#DC2626'));
 
   useEffect(() => {
     const el = containerRef.current;
@@ -352,12 +357,12 @@ export function IntradayCandlestickChart({
     chartRef.current = chart;
 
     candleRef.current = chart.addCandlestickSeries({
-      upColor:         '#00F0A0',
-      downColor:       '#FF3864',
-      borderUpColor:   '#00F0A0',
-      borderDownColor: '#FF3864',
-      wickUpColor:     '#00F0A0',
-      wickDownColor:   '#FF3864',
+      upColor:         '#15803D',
+      downColor:       '#DC2626',
+      borderUpColor:   '#15803D',
+      borderDownColor: '#DC2626',
+      wickUpColor:     '#15803D',
+      wickDownColor:   '#DC2626',
     });
 
     const ro = new ResizeObserver(entries => {
@@ -414,23 +419,23 @@ export function IntradayCompareChart({
     chartRef.current = chart;
 
     actualRef.current = chart.addLineSeries({
-      color: '#00E5FF',
+      color: '#4F46E5',
       lineWidth: 2,
       lineStyle: LineStyle.Solid,
       crosshairMarkerVisible: true,
       crosshairMarkerRadius: 4,
-      crosshairMarkerBackgroundColor: '#00E5FF',
+      crosshairMarkerBackgroundColor: '#4F46E5',
       lastValueVisible: true,
       priceLineVisible: false,
     });
 
     predictedRef.current = chart.addLineSeries({
-      color: '#FFB020',
+      color: '#B45309',
       lineWidth: 2,
       lineStyle: LineStyle.Dashed,
       crosshairMarkerVisible: true,
       crosshairMarkerRadius: 4,
-      crosshairMarkerBackgroundColor: '#FFB020',
+      crosshairMarkerBackgroundColor: '#B45309',
       lastValueVisible: true,
       priceLineVisible: false,
     });

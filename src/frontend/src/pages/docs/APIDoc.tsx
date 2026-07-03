@@ -12,7 +12,7 @@ export default function APIDoc() {
         title="FastAPI Backend — Serving Layer"
         subtitle="src/api/main.py · port 8000 · JWT stateless authentication"
         badge="07"
-        badgeColor="#6366F1"
+        badgeColor="#4F46E5"
       />
 
       {/* Trách nhiệm */}

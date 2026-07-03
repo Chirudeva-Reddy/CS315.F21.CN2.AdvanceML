@@ -54,10 +54,10 @@ export default function ProducerDoc() {
               borderTop: `3px solid ${card.accent}`,
               borderRadius: '8px', padding: '16px',
             }}>
-              <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
+              <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '8px' }}>
                 {card.title}
               </div>
-              <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Plus Jakarta Sans' }}>
+              <p style={{ margin: 0, fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.7, fontFamily: 'Hanken Grotesk' }}>
                 {card.body}
               </p>
             </div>
@@ -120,10 +120,10 @@ export default function ProducerDoc() {
           background: 'var(--bg-elevated)', border: '1px solid var(--border)',
           borderRadius: '10px', padding: '20px', marginBottom: '14px',
         }}>
-          <div style={{ fontFamily: 'Plus Jakarta Sans', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '14px' }}>
+          <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: 700, fontSize: '13.5px', color: 'var(--text-primary)', marginBottom: '14px' }}>
             Budget Calculation
           </div>
-          <p style={{ margin: '0 0 16px', fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Plus Jakarta Sans', lineHeight: 1.7 }}>
+          <p style={{ margin: '0 0 16px', fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'Hanken Grotesk', lineHeight: 1.7 }}>
             Poll interval 600 giây tương ứng với 6 chu kỳ mỗi giờ, hay 4.320 price calls mỗi tháng. OHLC được fetch mỗi 3 chu kỳ cho 2 coin, tạo ra thêm 2.880 OHLC calls mỗi tháng.
           </p>
           {[
@@ -133,8 +133,8 @@ export default function ProducerDoc() {
           ].map(row => (
             <div key={row.label} style={{ marginBottom: '12px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
-                <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '12px', color: 'var(--text-secondary)' }}>{row.label}</span>
-                <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '11px', color: row.highlight ? '#22C55E' : 'var(--text-primary)', fontWeight: 700 }}>
+                <span style={{ fontFamily: 'Hanken Grotesk', fontSize: '12px', color: 'var(--text-secondary)' }}>{row.label}</span>
+                <span style={{ fontFamily: 'JetBrains Mono', fontSize: '11px', color: row.highlight ? '#22C55E' : 'var(--text-primary)', fontWeight: 700 }}>
                   {row.used.toLocaleString()} / {row.total.toLocaleString()}
                 </span>
               </div>
@@ -155,7 +155,7 @@ export default function ProducerDoc() {
               { key: 'Buffer dùng cho', val: 'HTTP 429 retries' },
               { key: 'Mở rộng thêm', val: '+1 coin khả dụng (~3.600 calls)' },
             ].map(item => (
-              <div key={item.key} style={{ fontSize: '11px', fontFamily: 'Plus Jakarta Sans', color: 'var(--text-muted)' }}>
+              <div key={item.key} style={{ fontSize: '11px', fontFamily: 'Hanken Grotesk', color: 'var(--text-muted)' }}>
                 <span style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>{item.key}: </span>
                 {item.val}
               </div>

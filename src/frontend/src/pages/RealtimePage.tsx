@@ -93,13 +93,13 @@ export default function RealtimePage({ coin }: Props) {
               padding: '6px 13px', borderRadius: '20px',
               background: isLive ? 'var(--up-subtle)' : 'var(--bg-elevated)',
               border: `1px solid ${isLive ? 'var(--up-border)' : 'var(--border)'}`,
-              fontSize: '11px', fontWeight: 600, fontFamily: 'Plus Jakarta Sans',
+              fontSize: '11px', fontWeight: 600, fontFamily: 'Hanken Grotesk',
               color: isLive ? 'var(--up)' : 'var(--text-secondary)',
             }}>
               {isLive ? <Wifi size={11} /> : <WifiOff size={11} />}
               {isLive ? 'Live' : 'Batch'}
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'Hanken Grotesk' }}>
               <RefreshCw size={10} />
               {lastUpdated}
             </div>

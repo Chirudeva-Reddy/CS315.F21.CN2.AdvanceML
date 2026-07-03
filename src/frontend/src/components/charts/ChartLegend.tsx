@@ -19,7 +19,7 @@ interface ChartLegendProps {
 export default function ChartLegend({ items, swatchWidth = 16, gap = 16, marginTop }: ChartLegendProps) {
   return (
     <div style={{
-      display: 'flex', gap: `${gap}px`, fontSize: '11px', fontFamily: 'Plus Jakarta Sans',
+      display: 'flex', gap: `${gap}px`, fontSize: '11px', fontFamily: 'Hanken Grotesk',
       ...(marginTop != null ? { marginTop: `${marginTop}px` } : {}),
     }}>
       {items.map(({ color, label, dash }) => (
