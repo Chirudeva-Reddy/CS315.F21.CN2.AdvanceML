@@ -91,7 +91,7 @@ export default function PublicShell({ page, setPage, children }: PublicShellProp
 
       {/* Content */}
       <main style={{ paddingTop: '52px', minHeight: '100vh' }}>
-        {page === 'docs' && <FeatureBanner onSignIn={() => setPage('dashboard')} />}
+        {page === 'docs' && <FeatureBanner />}
 
         <div style={{ padding: '32px 36px' }}>
           <AnimatePresence mode="wait">

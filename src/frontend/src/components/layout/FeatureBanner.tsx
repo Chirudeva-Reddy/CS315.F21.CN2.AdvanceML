@@ -1,5 +1,3 @@
-import { TrendingUp } from 'lucide-react';
-
 const FEATURES = [
   { icon: '📊', label: 'Live Dashboard' },
   { icon: '⚡', label: 'Realtime Prices' },
@@ -9,12 +7,8 @@ const FEATURES = [
   { icon: '🤖', label: 'Model Registry' },
 ];
 
-interface FeatureBannerProps {
-  onSignIn: () => void;
-}
-
 /** Sign-in-to-unlock feature banner shown on the public docs homepage. */
-export default function FeatureBanner({ onSignIn }: FeatureBannerProps) {
+export default function FeatureBanner() {
   return (
     <div style={{
       background: 'linear-gradient(135deg, rgba(79,70,229,0.08) 0%, rgba(124,58,237,0.06) 100%)',
@@ -55,27 +49,6 @@ export default function FeatureBanner({ onSignIn }: FeatureBannerProps) {
           </span>
         ))}
       </div>
-
-      {/* CTA button */}
-      <button
-        onClick={onSignIn}
-        style={{
-          display: 'flex', alignItems: 'center', gap: '6px',
-          padding: '8px 18px', borderRadius: '8px',
-          background: 'var(--accent)', border: 'none',
-          color: '#fff', cursor: 'pointer',
-          fontFamily: 'Hanken Grotesk', fontSize: '12px', fontWeight: 600,
-          transition: 'background 0.15s, transform 0.1s',
-          flexShrink: 0,
-        }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'var(--accent-light)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'var(--accent)')}
-        onMouseDown={e => (e.currentTarget.style.transform = 'scale(0.97)')}
-        onMouseUp={e => (e.currentTarget.style.transform = 'scale(1)')}
-      >
-        <TrendingUp size={13} />
-        Đăng nhập ngay
-      </button>
     </div>
   );
 }
