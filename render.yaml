@@ -1,0 +1,26 @@
+# Render Blueprint — pins build context to repo root so the API Dockerfile's
+# `COPY src/api/...` / `COPY src/ml/model/...` paths resolve. Fixes the deploy
+# error: `"/src/api/requirements.txt": not found`.
+services:
+  - type: web
+    name: crypto-api
+    runtime: docker
+    rootDir: .                       # build context = repo root (NOT src/api)
+    dockerfilePath: src/api/Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: MODEL_DIR
+        value: /ml/model
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: JWT_EXPIRE_HOURS
+        value: "24"
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SECURE_COOKIES
+        value: "true"
