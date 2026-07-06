@@ -206,8 +206,8 @@ services:
   # ── FastAPI Backend ────────────────────────────────────────────────────────────
   api:
     build:
-      context: ../src/api
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: src/api/Dockerfile
     container_name: crypto-api
     restart: unless-stopped
     depends_on:

@@ -1,0 +1,19 @@
+{
+  "rmse": 10212.9521484375,
+  "mae": 7613.10791015625,
+  "directional_accuracy_pct": 49.37238493723849,
+  "direction_accuracy_pct": 0.0,
+  "f1_macro": 0.0,
+  "per_class_accuracy": {},
+  "confusion_matrix": [],
+  "epochs_trained": 25,
+  "best_val_loss": 0.6083469040253583,
+  "coin": "bitcoin",
+  "last_price_usd": 62410.62109375,
+  "alpha": 1.0,
+  "gamma": 0.3,
+  "loss_type": "direction_weighted",
+  "model_version": 3,
+  "window_days": null,
+  "vol_rmse_scaled": 0.8308300375938416
+}

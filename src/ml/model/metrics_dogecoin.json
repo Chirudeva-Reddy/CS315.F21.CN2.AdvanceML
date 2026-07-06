@@ -1,0 +1,19 @@
+{
+  "rmse": 0.017646273598074913,
+  "mae": 0.013902802020311356,
+  "directional_accuracy_pct": 43.51464435146444,
+  "direction_accuracy_pct": 0.0,
+  "f1_macro": 0.0,
+  "per_class_accuracy": {},
+  "confusion_matrix": [],
+  "epochs_trained": 14,
+  "best_val_loss": 0.5211528369358608,
+  "coin": "dogecoin",
+  "last_price_usd": 0.0768000036478042,
+  "alpha": 1.0,
+  "gamma": 0.3,
+  "loss_type": "direction_weighted",
+  "model_version": 3,
+  "window_days": null,
+  "vol_rmse_scaled": 0.5498809814453125
+}

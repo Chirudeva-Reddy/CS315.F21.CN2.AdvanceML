@@ -1,0 +1,10 @@
+# Keep the Docker build context small (api build now uses repo root).
+.git
+**/__pycache__/
+**/*.pyc
+**/node_modules/
+src/frontend/dist/
+data/g-research/
+.env
+.venv/
+*.log

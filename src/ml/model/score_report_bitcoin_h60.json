@@ -1,0 +1,62 @@
+{
+  "coin": "bitcoin",
+  "horizon": 60,
+  "rmse": 10212.9521484375,
+  "mae": 7613.10791015625,
+  "directional_accuracy_pct": 49.37238493723849,
+  "walk_forward_dir_acc_mean": 46.666666666666664,
+  "walk_forward_rmse_mean": 9802.2939453125,
+  "per_fold_metrics": [
+    {
+      "fold": 1,
+      "rmse": 12790.8984375,
+      "mae": 9565.283203125,
+      "dir_acc": 40.0,
+      "n_train": 522,
+      "n_val": 10
+    },
+    {
+      "fold": 2,
+      "rmse": 5787.00341796875,
+      "mae": 4792.97802734375,
+      "dir_acc": 50.0,
+      "n_train": 522,
+      "n_val": 10
+    },
+    {
+      "fold": 3,
+      "rmse": 6684.39990234375,
+      "mae": 5228.30029296875,
+      "dir_acc": 50.0,
+      "n_train": 522,
+      "n_val": 10
+    },
+    {
+      "fold": 4,
+      "rmse": 16675.841796875,
+      "mae": 13894.287109375,
+      "dir_acc": 40.0,
+      "n_train": 522,
+      "n_val": 10
+    },
+    {
+      "fold": 5,
+      "rmse": 10482.9033203125,
+      "mae": 7194.5498046875,
+      "dir_acc": 60.0,
+      "n_train": 522,
+      "n_val": 10
+    },
+    {
+      "fold": 6,
+      "rmse": 6392.716796875,
+      "mae": 5500.64892578125,
+      "dir_acc": 40.0,
+      "n_train": 522,
+      "n_val": 10
+    }
+  ],
+  "epochs_trained": 25,
+  "best_val_loss": 0.6083469040253583,
+  "window_days": null
+}

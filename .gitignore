@@ -10,7 +10,15 @@ data/g-research/
 *.pt
 *.pth
 *.pkl
-src/ml/model/
+src/ml/model/*
+
+# Track current v3 artifacts so the deployed API (Render builds from git) has
+# trained models baked into the image. Legacy v1/v2 stay ignored.
+!src/ml/model/lstm_*_h*_v3.pt
+!src/ml/model/scaler_*_h*_v3.pkl
+!src/ml/model/score_report_*.json
+!src/ml/model/metrics_*.json
+!src/ml/model/backtest_report.json
 
 # ── Python cache ──────────────────────────────────────────────────────────────
 __pycache__/
