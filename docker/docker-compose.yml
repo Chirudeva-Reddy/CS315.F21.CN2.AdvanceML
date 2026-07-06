@@ -157,30 +157,6 @@ services:
       retries: 5
       start_period: 30s
 
-  # ── Streamlit Dashboard ────────────────────────────────────────────────────
-  dashboard:
-    build:
-      context: ../src/dashboard
-      dockerfile: Dockerfile
-    container_name: crypto-dashboard
-    restart: unless-stopped
-    depends_on:
-      mongodb:
-        condition: service_healthy
-    ports:
-      - "8501:8501"
-    env_file:
-      - path: ../.env
-        required: false          # allows fresh-clone start before `cp .env.example .env`
-    environment:
-      MONGO_URI: mongodb://${MONGO_INITDB_ROOT_USERNAME:-admin}:${MONGO_INITDB_ROOT_PASSWORD:-password123}@mongodb:27017/${MONGO_DB:-crypto_db}?authSource=admin
-    healthcheck:
-      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8501/_stcore/health')\" || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-
   # ── Inference Scheduler (runs LSTM inference every 5 minutes) ─────────────
   inference_scheduler:
     build:

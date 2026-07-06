@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Lambda Architecture implementation for real-time and batch cryptocurrency analytics (Bitcoin + Dogecoin). Covers: Kafka ingestion → Spark streaming/batch → MongoDB serving → dual-head LSTM forecasting → Streamlit dashboard + React frontend + FastAPI backend.
+Lambda Architecture implementation for real-time and batch cryptocurrency analytics (Bitcoin + Dogecoin). Covers: Kafka ingestion → Spark streaming/batch → MongoDB serving → dual-head LSTM forecasting → React frontend + FastAPI backend.
 
 ## Environment Setup
 
@@ -19,7 +19,7 @@ Key env vars: `COINGECKO_API_KEY`, `KAFKA_BOOTSTRAP_SERVERS`, `MONGO_URI`, `SPAR
 ### Infrastructure
 
 ```bash
-make docker-up          # Start all 11 services
+make docker-up          # Start all 10 services
 make docker-down        # Stop all
 make docker-logs        # Follow logs
 
@@ -49,7 +49,6 @@ make test               # Full pytest suite
 make test-producer      # Producer tests only
 make test-lstm          # ML tests only
 make test-batch         # Batch job tests
-make test-dashboard     # Dashboard + indicators + mongo_writer
 
 # E2E (requires running infrastructure)
 make e2e
@@ -72,7 +71,6 @@ bash scripts/verify_acceptance.sh   # Run acceptance criteria checks
 
 | Service | URL |
 |---------|-----|
-| Streamlit Dashboard | http://localhost:8501 |
 | React Frontend | http://localhost:3000 |
 | FastAPI Backend | http://localhost:8000 |
 | Kafka UI | http://localhost:8080 |
@@ -95,7 +93,6 @@ CSV data / historical prices
 
 MongoDB
     → FastAPI (JWT auth, REST endpoints, port 8000)
-    → Streamlit Dashboard (port 8501)
     → React Frontend (port 3000)
 
 LSTM Inference Scheduler
@@ -135,9 +132,9 @@ LSTM Inference Scheduler
 
 React 19 + TypeScript + Vite + Tailwind. Pages: Dashboard, Realtime, Technical, Predictions, Correlation. API client in `src/api/client.ts` uses Axios pointed at FastAPI backend.
 
-### Docker Compose Services (11 total)
+### Docker Compose Services (10 total)
 
-Zookeeper, Kafka, Kafka UI, MongoDB, Spark Master, Spark Worker, Producer, Dashboard (Streamlit), API (FastAPI), Frontend (React/Nginx), Inference Scheduler.
+Zookeeper, Kafka, Kafka UI, MongoDB, Spark Master, Spark Worker, Producer, API (FastAPI), Frontend (React/Nginx), Inference Scheduler.
 
 ## Key Architectural Constraints
 

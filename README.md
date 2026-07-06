@@ -1,6 +1,6 @@
 # Crypto Big Data — Lambda Architecture
 
-Real-time and batch price analytics for **Bitcoin (BTC)** and **Dogecoin (DOGE)** using a full Lambda Architecture: Kafka + Spark Streaming (Speed Layer), Spark Batch (Batch Layer), MongoDB (Serving Layer), LSTM price prediction (ML Layer), and a Streamlit dashboard.
+Real-time and batch price analytics for **Bitcoin (BTC)** and **Dogecoin (DOGE)** using a full Lambda Architecture: Kafka + Spark Streaming (Speed Layer), Spark Batch (Batch Layer), MongoDB (Serving Layer), LSTM price prediction (ML Layer), a FastAPI backend, and a React frontend.
 
 ---
 
@@ -53,12 +53,12 @@ Real-time and batch price analytics for **Bitcoin (BTC)** and **Dogecoin (DOGE)*
                        └──────────┬───────────┘
                                   │
                        ┌──────────▼──────────┐
-                       │   STREAMLIT DASH     │
-                       │   port :8501         │
-                       │  Page 1: Real-time   │
-                       │  Page 2: Technical   │
-                       │  Page 3: Predictions │
-                       │  Page 4: Correlation │
+                       │   REACT FRONTEND     │
+                       │   port :3000         │
+                       │  Dashboard / Realtime│
+                       │  Technical           │
+                       │  Predictions         │
+                       │  Correlation         │
                        └─────────────────────┘
 ```
 
@@ -82,14 +82,14 @@ git clone <repo-url> && cd CS315.F21.CN2.AdvanceML
 cp .env.example .env
 # Edit .env and set COINGECKO_API_KEY=<your demo key>
 
-# 3. Start all services (Kafka, MongoDB, Spark, Producer, Dashboard)
+# 3. Start all services (Kafka, MongoDB, Spark, Producer, API, Frontend)
 docker compose -f docker/docker-compose.yml up -d
 
 # 4. Run the Spark batch job to populate historical collections
 bash scripts/run_batch.sh
 
-# 5. Open the dashboard
-open http://localhost:8501
+# 5. Open the frontend
+open http://localhost:3000
 ```
 
 ---
@@ -117,7 +117,8 @@ open http://localhost:8501
 | Kafka UI | `8080` | Kafka topic browser |
 | Spark Master UI | `8081` | Spark cluster management |
 | MongoDB | `27017` | Database (auth: admin/password123) |
-| Streamlit Dashboard | `8501` | Main UI |
+| FastAPI Backend | `8000` | REST API |
+| React Frontend | `3000` | Main UI |
 
 ---
 
@@ -153,7 +154,7 @@ Model artifacts saved to `src/ml/model/`:
 ```bash
 # Install test dependencies
 pip install pytest kafka-python requests python-dotenv pycoingecko \
-            torch numpy scikit-learn pandas pyspark pymongo streamlit plotly
+            torch numpy scikit-learn pandas pyspark pymongo
 
 # Run all tests
 python -m pytest tests/ -v --tb=short
@@ -162,7 +163,6 @@ python -m pytest tests/ -v --tb=short
 python -m pytest tests/test_producer.py -v
 python -m pytest tests/test_lstm.py -v
 python -m pytest tests/test_batch_job.py -v
-python -m pytest tests/test_dashboard.py -v
 ```
 
 ---
@@ -190,8 +190,7 @@ python -m pytest tests/test_dashboard.py -v
 │   │   ├── preprocess.py        # Data loading + sequence creation
 │   │   ├── train_lstm.py        # Training script (--coin arg)
 │   │   └── inference.py         # 7-day forecast → MongoDB
-│   └── dashboard/
-│       ├── app.py               # Streamlit entry point
-│       └── pages/               # 4 dashboard pages
+│   ├── api/                     # FastAPI backend (REST, JWT auth)
+│   └── frontend/                # React 19 + TypeScript + Vite UI
 └── tests/                       # pytest test suite
 ```

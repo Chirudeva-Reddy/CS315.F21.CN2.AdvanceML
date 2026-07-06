@@ -1,7 +1,7 @@
 # Makefile — Crypto Big Data Lambda Architecture
 # Convenience targets for development, testing, and verification.
 
-.PHONY: help verify test test-producer test-lstm test-batch test-dashboard \
+.PHONY: help verify test test-producer test-lstm test-batch \
         lint train-btc train-doge infer-btc infer-doge infer-all \
         docker-up docker-down docker-logs batch
 
@@ -15,7 +15,6 @@ help:
 	@echo "  test-producer   Run producer tests only"
 	@echo "  test-lstm       Run LSTM tests only"
 	@echo "  test-batch      Run batch job tests only"
-	@echo "  test-dashboard  Run dashboard tests only"
 	@echo "  e2e             Run all E2E layers (requires Docker)"
 	@echo "  e2e-layer-1     E2E Layer 1: Producer → Kafka"
 	@echo "  e2e-layer-2     E2E Layer 2: Spark Batch → MongoDB"
@@ -50,9 +49,6 @@ test-lstm:
 
 test-batch:
 	python -m pytest tests/test_batch_job.py -v --tb=short
-
-test-dashboard:
-	python -m pytest tests/test_dashboard.py tests/test_indicators.py tests/test_mongo_writer.py -v --tb=short
 
 # ── E2E ────────────────────────────────────────────────────────────────────────
 e2e:
