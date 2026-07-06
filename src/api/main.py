@@ -434,8 +434,13 @@ def get_predictions(
         else:
             model_filter = {"$or": [{"horizon": active_horizon}, {"horizon": {"$exists": False}}]} if active_horizon == 7 else {"horizon": active_horizon}
 
+    # Include the elapsed portion of the forecast (one horizon back) so past
+    # prediction dates render ACTUAL/ERROR against realized prices; future rows
+    # still show as forecast-only. Prevents the "all —" table when a model's
+    # forecast window started before today.
+    lookback_start = today - timedelta(days=active_horizon)
     cursor = db.predictions.find(
-        {"coin": symbol, "prediction_date": {"$gte": today}, **model_filter},
+        {"coin": symbol, "prediction_date": {"$gte": lookback_start}, **model_filter},
         sort=[("prediction_date", 1)],
         projection={"_id": 0},
     )
@@ -450,7 +455,6 @@ def get_predictions(
             "message": f"No predictions for {symbol} {active_model_id or f'H{active_horizon}'}. Run inference first.",
         }
     model_version = docs[-1].get("model_version", "lstm_v1") if docs else "lstm_v1"
-    prices = [d["predicted_price"] for d in docs]
     serialized = []
     for d in docs:
         row = _serialize(d)
@@ -459,15 +463,23 @@ def get_predictions(
                 row[field] = d[field]
         serialized.append(row)
 
+    # Summary/outlook fields describe the *upcoming* forecast only — the elapsed
+    # rows are included solely so the table can show ACTUAL/ERROR, not to skew
+    # the next-day price or trend counts.
+    # pymongo returns naive UTC datetimes; compare against a naive `today`.
+    today_naive = today.replace(tzinfo=None)
+    future_docs = [d for d in docs if d["prediction_date"].replace(tzinfo=None) >= today_naive] or docs
+    prices = [d["predicted_price"] for d in future_docs]
+
     # ── Trend summary (primary signal) ──────────────────────────────────────────
-    directions = [d.get("direction") for d in docs if d.get("direction")]
+    directions = [d.get("direction") for d in future_docs if d.get("direction")]
     dir_counts = {k: directions.count(k) for k in ("UP", "DOWN", "FLAT")}
     dominant_direction = max(dir_counts, key=dir_counts.get) if directions else None
     avg_confidence = (
-        float(np.mean([d["direction_prob"] for d in docs if d.get("direction_prob") is not None]))
-        if any(d.get("direction_prob") is not None for d in docs) else None
+        float(np.mean([d["direction_prob"] for d in future_docs if d.get("direction_prob") is not None]))
+        if any(d.get("direction_prob") is not None for d in future_docs) else None
     )
-    strengths = [d.get("trend_strength") for d in docs if d.get("trend_strength")]
+    strengths = [d.get("trend_strength") for d in future_docs if d.get("trend_strength")]
     dominant_strength = max(set(strengths), key=strengths.count) if strengths else None
 
     return {
