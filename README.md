@@ -2,6 +2,12 @@
 
 Real-time and batch price analytics for **Bitcoin (BTC)** and **Dogecoin (DOGE)** using a full Lambda Architecture: Kafka + Spark Streaming (Speed Layer), Spark Batch (Batch Layer), MongoDB (Serving Layer), LSTM price prediction (ML Layer), a FastAPI backend, and a React frontend.
 
+## Demo
+
+**Live:** https://bitconiacs.onrender.com/
+
+Login: `admin` / `password123`
+
 ---
 
 ## Architecture
